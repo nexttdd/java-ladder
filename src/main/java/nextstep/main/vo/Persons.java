@@ -1,17 +1,32 @@
 package nextstep.main.vo;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Persons {
-    public static final int MAX_NAME_COUNT = 5;
-    List<String> perons;
+    private static final String NAME_SEPARATOR = ",";
 
-    public Persons(String... names) {
-        for (String name : names) {
-            if (name.length() > MAX_NAME_COUNT)
-                throw new IllegalArgumentException();
-        }
-        perons = Arrays.asList(names);
+    private List<Person> persons;
+
+    public Persons(List<Person> players) {
+        this.persons = Collections.unmodifiableList(players);
+    }
+
+    public static Persons generate(String names) {
+        List<Person> persons = Arrays.stream(split(names))
+                .map(Person::new)
+                .collect(Collectors.toList());
+
+        return new Persons(persons);
+    }
+
+    private static String[] split(String value) {
+        return value.split(NAME_SEPARATOR);
+    }
+
+    public int getPersons() {
+        return this.persons.size();
     }
 }

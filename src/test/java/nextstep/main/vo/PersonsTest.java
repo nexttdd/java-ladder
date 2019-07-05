@@ -2,10 +2,18 @@ package nextstep.main.vo;
 
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class PersonsTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void 플레이어_이름이_5글자_넘는_경우() {
+    @Test
+    public void 문자열을_쉽표로_구분할때_사람_명수() {
         //given
-        new Persons("moon, moonhye");
+        String names = "문혜영, 문혜영2";
+
+        //when
+        Persons result = Persons.generate(names);
+
+        //then
+        assertThat(result.getPersons()).isEqualTo(2);
     }
 }
