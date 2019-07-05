@@ -14,6 +14,6 @@ public class PersonsTest {
         Persons result = Persons.generate(names);
 
         //then
-        assertThat(result.getPersons()).isEqualTo(2);
+        assertThat(result.getPersonCount()).isEqualTo(2);
     }
 }

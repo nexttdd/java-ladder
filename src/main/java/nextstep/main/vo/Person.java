@@ -1,5 +1,8 @@
 package nextstep.main.vo;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Person {
     private static final int MAX_NAME_COUNT = 5;
 
@@ -10,5 +13,14 @@ public class Person {
             throw new IllegalArgumentException();
 
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        String str = IntStream.range(0, MAX_NAME_COUNT - this.name.length())
+                .mapToObj(i -> "  ")
+                .collect(Collectors.joining("", this.name, " "));
+
+        return str;
     }
 }

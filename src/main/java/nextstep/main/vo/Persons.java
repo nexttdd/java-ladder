@@ -26,7 +26,11 @@ public class Persons {
         return value.split(NAME_SEPARATOR);
     }
 
-    public int getPersons() {
+    public int getPersonCount() {
         return this.persons.size();
+    }
+
+    public List<Person> getPersons() {
+        return this.persons;
     }
 }
