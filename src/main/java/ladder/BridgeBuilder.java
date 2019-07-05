@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class BridgeBuilder {
     private static Random random;
+
     static {
         random = new Random();
     }
@@ -21,10 +22,15 @@ public class BridgeBuilder {
     }
 
     public static Bridge buildMiddle(Bridge beforeBridge) {
-        return Bridge.of(determineGoLeft(beforeBridge), random.nextBoolean());
+        boolean goLeft = determineGoLeft(beforeBridge);
+        return Bridge.of(goLeft, determineGoRight(goLeft));
+    }
+
+    private static boolean determineGoRight(boolean goLeft) {
+        return goLeft ? Boolean.FALSE : random.nextBoolean();
     }
 
     private static boolean determineGoLeft(Bridge beforeBridge) {
-        return beforeBridge.goRight() == Boolean.TRUE ? Boolean.FALSE : random.nextBoolean();
+        return beforeBridge.goRight() ? Boolean.FALSE : random.nextBoolean();
     }
 }
