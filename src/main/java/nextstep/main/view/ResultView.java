@@ -1,5 +1,6 @@
 package nextstep.main.view;
 
+import nextstep.main.vo.Ladder;
 import nextstep.main.vo.Persons;
 
 public class ResultView {
@@ -10,5 +11,10 @@ public class ResultView {
                 .forEach(System.out::print);
 
         System.out.println();
+    }
+
+    public static void drawLadder(Ladder ladder) {
+        ladder.getLines()
+                .forEach(System.out::println);
     }
 }

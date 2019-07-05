@@ -16,5 +16,6 @@ public class ConsoleMain {
         ladder.generateLadder(ladderHeight, persons.getPersonCount());
 
         ResultView.executeNames(persons);
+        ResultView.drawLadder(ladder);
     }
 }

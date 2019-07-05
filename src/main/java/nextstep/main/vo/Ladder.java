@@ -18,4 +18,8 @@ public class Ladder {
 
         return this.lines.size();
     }
+
+    public List<Line> getLines() {
+        return this.lines;
+    }
 }

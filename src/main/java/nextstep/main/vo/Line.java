@@ -47,4 +47,20 @@ public class Line {
     static boolean isEqual(boolean prevPoint, boolean newPoint) {
         return prevPoint == newPoint;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder str = new StringBuilder("   |");
+        points.forEach(b -> str.append(pointToString(b)));
+
+        return str.toString();
+    }
+
+    private String pointToString(boolean b) {
+        if(b) {
+            return "-----|";
+        }
+
+        return "     |";
+    }
 }
