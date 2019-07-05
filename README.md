@@ -9,7 +9,7 @@
 * [텍스트와 이미지로 살펴보는 온라인 코드 리뷰 과정](https://github.com/nextstep-step/nextstep-docs/tree/master/codereview)
 
 ## 클래스 구조 및 테스트 케이스 작성
-* Person
+* Persons
   * 플레이어 이름이 5글자 넘을때 예외처리
 * Line
   * 라인이 겹치는 경우
