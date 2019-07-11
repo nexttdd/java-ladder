@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Line {
     private final List<Bridge> bridges;
@@ -26,6 +24,15 @@ public class Line {
         return new Line(buildMulti(numberOfPeople));
     }
 
+    private static List<Bridge> buildOne() {
+        return Collections.singletonList(BridgeBuilder.buildOne());
+    }
+
+    private static List<Bridge> buildDouble() {
+        Bridge firstBridge = BridgeBuilder.buildLeft();
+        return Arrays.asList(firstBridge, BridgeBuilder.buildRight(firstBridge));
+    }
+
     private static List<Bridge> buildMulti(int numberOfPeople) {
         List<Bridge> bridges = new ArrayList<>();
 
@@ -36,15 +43,6 @@ public class Line {
         bridges.add(BridgeBuilder.buildRight(bridges.get(numberOfPeople - 2)));
 
         return bridges;
-    }
-
-    private static List<Bridge> buildOne() {
-        return Collections.singletonList(BridgeBuilder.buildOne());
-    }
-
-    private static List<Bridge> buildDouble() {
-        Bridge firstBridge = BridgeBuilder.buildLeft();
-        return Arrays.asList(firstBridge, BridgeBuilder.buildRight(firstBridge));
     }
 
     public List<Bridge> getBridges() {

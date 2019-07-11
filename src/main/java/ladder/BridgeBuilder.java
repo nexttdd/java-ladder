@@ -18,19 +18,14 @@ public class BridgeBuilder {
     }
 
     public static Bridge buildRight(Bridge beforeBridge) {
-        return Bridge.of(determineGoLeft(beforeBridge), Boolean.FALSE);
+        return Bridge.of(beforeBridge.goRight(), Boolean.FALSE);
     }
 
     public static Bridge buildMiddle(Bridge beforeBridge) {
-        boolean goLeft = determineGoLeft(beforeBridge);
-        return Bridge.of(goLeft, determineGoRight(goLeft));
+        return Bridge.of(beforeBridge.goRight(), determineGoRight(beforeBridge));
     }
 
-    private static boolean determineGoRight(boolean goLeft) {
-        return goLeft ? Boolean.FALSE : random.nextBoolean();
-    }
-
-    private static boolean determineGoLeft(Bridge beforeBridge) {
+    private static boolean determineGoRight(Bridge beforeBridge) {
         return beforeBridge.goRight() ? Boolean.FALSE : random.nextBoolean();
     }
 }
