@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 public class PointTest {
     @Test
     public void 이전Point의_right가_TRUE일때() {
@@ -14,5 +13,13 @@ public class PointTest {
 
         assertThat(currentPoint.isLeft()).isTrue();
         assertThat(currentPoint.isRight()).isFalse();
+    }
+
+    @Test
+    public void 이전Point의_right가_FALSE일때() {
+        Point beforePoint = Point.first(Boolean.FALSE);
+        Point currentPoint = Point.of(beforePoint);
+
+        assertThat(currentPoint.isLeft()).isFalse();
     }
 }

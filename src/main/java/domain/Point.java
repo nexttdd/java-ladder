@@ -1,6 +1,8 @@
 package domain;
 
 
+import java.util.Random;
+
 public class Point {
     private boolean left;
     private boolean right;
@@ -22,9 +24,7 @@ public class Point {
     }
 
     public static Point of(Point beforePoint) {
-        if(beforePoint.right)
-            return new Point(Boolean.TRUE, Boolean.FALSE);
-        return new Point(false, RandomUtil.getBoolean());
+        return new Point(beforePoint.right, RandomUtil.getBoolean(beforePoint.right));
     }
 
     public boolean isLeft() {
