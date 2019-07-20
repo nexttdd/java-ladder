@@ -1,5 +1,7 @@
 package domain;
 
+import javafx.beans.binding.BooleanExpression;
+
 public class Point {
     private boolean left;
     private boolean right;
@@ -22,5 +24,9 @@ public class Point {
 
     public static Point last(boolean current) {
         return new Point(current, Boolean.FALSE);
+    }
+
+    public static Point of(Point beforePoint) {
+        return new Point();
     }
 }
