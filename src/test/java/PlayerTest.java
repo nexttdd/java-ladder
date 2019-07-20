@@ -1,11 +1,14 @@
 import domain.Player;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class PlayerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void 이름_최대길이_초과() {
+
         new Player("김서영영영영영");
     }
 
