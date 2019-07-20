@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class sStreamStudyTest {
+public class StreamStudyTest {
 	private List<Integer> numbers;
 	
 	@BeforeEach
