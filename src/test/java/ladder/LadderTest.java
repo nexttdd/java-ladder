@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderTest {
     //TODO : 비정상 이름 입력 확인
-
     @Test
     void 한명_높이1_사다리_만들기() {
         int height = 1;

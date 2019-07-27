@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BridgeBuilderTest {
-
     @Test
     public void 한명일때_다리생성() {
         //when
@@ -35,7 +34,7 @@ public class BridgeBuilderTest {
         Bridge rightBridge = BridgeBuilder.buildRight(beforeBridge);
 
         //then
-        assertThat(rightBridge.goLeft()).isFalse();
+        assertThat(rightBridge.goLeft()).isTrue();
         assertThat(rightBridge.goRight()).isFalse();
     }
 
@@ -48,6 +47,7 @@ public class BridgeBuilderTest {
         Bridge currentBridge = BridgeBuilder.buildMiddle(beforeBridge);
 
         //then
-        assertThat(currentBridge.goLeft()).isFalse();
+        assertThat(currentBridge.goLeft()).isTrue();
+        assertThat(currentBridge.goRight()).isFalse();
     }
 }
