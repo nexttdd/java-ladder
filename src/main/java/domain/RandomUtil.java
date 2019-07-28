@@ -2,7 +2,11 @@ package domain;
 
 import java.util.Random;
 
-public class RandomUtil implements GeneratorPoint {
+public class RandomUtil {
+
+    public static boolean getBoolean() {
+        return new Random().nextBoolean();
+    }
 
     public static boolean getBoolean(boolean beforeRight) {
         if(beforeRight) {
@@ -10,10 +14,5 @@ public class RandomUtil implements GeneratorPoint {
         }
 
         return new Random().nextBoolean();
-    }
-
-    @Override
-    public boolean generate() {
-        return false;
     }
 }

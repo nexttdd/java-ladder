@@ -1,8 +1,5 @@
 package domain;
 
-
-import java.util.Random;
-
 public class Point {
     private boolean left;
     private boolean right;
@@ -15,16 +12,20 @@ public class Point {
         this.right = right;
     }
 
-    public static Point first(boolean current) {
-        return new Point(Boolean.FALSE, current);
+    public static Point first() {
+        return new Point(Boolean.FALSE, RandomUtil.getBoolean());
     }
 
-    public static Point last(boolean current) {
-        return new Point(current, Boolean.FALSE);
+    public static Point last(Point beforePoint) {
+        return new Point(beforePoint.right, Boolean.FALSE);
     }
 
     public static Point of(Point beforePoint) {
         return new Point(beforePoint.right, RandomUtil.getBoolean(beforePoint.right));
+    }
+
+    public static Point of(boolean left, boolean right) {
+        return new Point(left, right);
     }
 
     public boolean isLeft() {

@@ -22,10 +22,7 @@ public class Players {
         return players.size();
     }
 
-    @Override
-    public String toString() {
-        return players.stream()
-                .map(player -> player.toString())
-                .collect(Collectors.joining("     "));
+    public List<Player> getPlayers() {
+        return players;
     }
 }
