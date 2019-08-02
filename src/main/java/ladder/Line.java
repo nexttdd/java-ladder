@@ -48,4 +48,8 @@ public class Line {
     public List<Bridge> getBridges() {
         return Collections.unmodifiableList(bridges);
     }
+
+    public int nextPosition(int position) {
+        return bridges.get(position).nextPosition(position);
+    }
 }

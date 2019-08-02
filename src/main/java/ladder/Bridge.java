@@ -27,4 +27,16 @@ public class Bridge {
     public boolean goRight() {
         return this.right;
     }
+
+    public int nextPosition(int position) {
+        if (goLeft()) {
+            return position - 1;
+        }
+
+        if (goRight()) {
+            return position + 1;
+        }
+
+        return 0;
+    }
 }

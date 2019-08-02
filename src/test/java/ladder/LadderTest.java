@@ -23,4 +23,18 @@ public class LadderTest {
 
         assertThat(ladder.getLines().size()).isEqualTo(height);
     }
+
+    @Test
+    void 결과확인하기() {
+        int height = 5;
+        String[] names = {"yo", "jo"};
+        Ladder ladder = Ladder.of(names, height);
+        int startPosition = 0;
+
+        //when
+        int lastPosition = ladder.findLastPosition(startPosition);
+
+        //then
+        assertThat(lastPosition).isEqualTo(0);
+    }
 }
