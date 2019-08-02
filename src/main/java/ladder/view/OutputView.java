@@ -3,6 +3,7 @@ package ladder.view;
 import ladder.Bridge;
 import ladder.Ladder;
 import ladder.Line;
+import ladder.Result;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -14,9 +15,19 @@ public class OutputView {
     private static final String VERTICAL_LINE = "|";
     private static final String BRIDGE_LINE = "-";
 
-    public static void printResult(Ladder ladder) {
+    public static void printResult(Ladder ladder, Result result) {
         printNames(ladder.getNames());
         printLadder(ladder.getLines());
+        printResult(result);
+    }
+
+    private static void printResult(Result result) {
+        StringBuilder sb = new StringBuilder();
+        result.getResults()
+                .forEach(data -> {
+                    sb.append(StringUtils.leftPad(data, LENGTH));
+                });
+        System.out.println(sb.toString());
     }
 
     private static void printNames(String[] names) {

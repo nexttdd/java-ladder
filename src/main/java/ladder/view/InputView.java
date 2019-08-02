@@ -9,6 +9,12 @@ public class InputView {
         return sc.nextLine().split(",");
     }
 
+    public static String inputResult() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+        return sc.nextLine();
+    }
+
     public static int inputLadderHeight() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n최대 사다리 높이는 몇 개인가요?");
