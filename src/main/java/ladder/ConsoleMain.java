@@ -11,6 +11,13 @@ public class ConsoleMain {
 
         Ladder ladder = Ladder.of(names, ladderHeight);
 
-        OutputView.printResult(ladder, result);
+        OutputView.printLadders(ladder, result);
+
+
+        String userName = "";
+        do {
+            userName = InputView.inputCheckResult();
+            OutputView.printReward(userName, ladder, result);
+        } while (!"all".equals(userName));
     }
 }

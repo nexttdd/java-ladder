@@ -15,7 +15,7 @@ public class OutputView {
     private static final String VERTICAL_LINE = "|";
     private static final String BRIDGE_LINE = "-";
 
-    public static void printResult(Ladder ladder, Result result) {
+    public static void printLadders(Ladder ladder, Result result) {
         printNames(ladder.getNames());
         printLadder(ladder.getLines());
         printResult(result);
@@ -64,5 +64,20 @@ public class OutputView {
         }
 
         sb.append(StringUtils.leftPad(VERTICAL_LINE, LENGTH, padCharacter));
+    }
+
+    public static void printReward(String userName, Ladder ladder, Result result) {
+        System.out.println("\n실행 결과");
+
+        if ("all".equals(userName)) {
+            String[] names = ladder.getNames();
+            Arrays.stream(names)
+                    .forEach(name -> {
+                        System.out.println(name + " : " + result.findByPosition(ladder.findLastPosition(name)));
+                    });
+            return;
+        }
+
+        System.out.println(userName + " : " + result.findByPosition(ladder.findLastPosition(userName)));
     }
 }
