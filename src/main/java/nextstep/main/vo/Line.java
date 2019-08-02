@@ -1,5 +1,7 @@
 package nextstep.main.vo;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,6 +9,10 @@ import java.util.stream.IntStream;
 
 public class Line {
     private static final int START_POINT = 0;
+    public static final String VERTICAL = "|";
+    public static final int HORIZONTAL_SIZE = 5;
+    public static final String DASH = "-";
+    public static final String EMPTY = " ";
 
     private List<Boolean> points;
 
@@ -50,7 +56,7 @@ public class Line {
 
     @Override
     public String toString() {
-        final StringBuilder str = new StringBuilder("   |");
+        final StringBuilder str = new StringBuilder("    |");
         points.forEach(b -> str.append(pointToString(b)));
 
         return str.toString();
@@ -58,9 +64,8 @@ public class Line {
 
     private String pointToString(boolean b) {
         if(b) {
-            return "-----|";
+            return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, DASH);
         }
-
-        return "     |";
+        return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, EMPTY);
     }
 }

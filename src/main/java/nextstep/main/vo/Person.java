@@ -18,7 +18,7 @@ public class Person {
     @Override
     public String toString() {
         String str = IntStream.range(0, MAX_NAME_COUNT - this.name.length())
-                .mapToObj(i -> "  ")
+                .mapToObj(i -> " ")
                 .collect(Collectors.joining("", this.name, " "));
 
         return str;
