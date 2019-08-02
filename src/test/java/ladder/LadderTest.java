@@ -27,12 +27,12 @@ public class LadderTest {
     @Test
     void 결과확인하기() {
         int height = 5;
-        String[] names = {"yo", "jo"};
+        String[] names = {"yo"};
         Ladder ladder = Ladder.of(names, height);
         int startPosition = 0;
 
         //when
-        int lastPosition = ladder.findLastPosition(startPosition);
+        int lastPosition = ladder.findLastPosition("yo");
 
         //then
         assertThat(lastPosition).isEqualTo(0);

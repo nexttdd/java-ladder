@@ -23,19 +23,34 @@ public class Ladder {
         return new Ladder(names, lines);
     }
 
+    public int findLastPosition(String inputName) {
+        int position = findPositionByName(inputName);
+
+        for (Line line : lines) {
+            position = line.nextPosition(position);
+        }
+
+        return position;
+    }
+
+    private int findPositionByName(String inputName) {
+        int idx = 0;
+
+        for (String name : names) {
+            if (name.equals(inputName)) {
+                return idx;
+            }
+            idx++;
+        }
+
+        throw new IllegalArgumentException("참여자 이름이 없습니다.");
+    }
+
     public String[] getNames() {
         return names;
     }
 
     public List<Line> getLines() {
         return lines;
-    }
-
-    public int findLastPosition(int position) {
-        for (Line line : lines) {
-            position = line.nextPosition(position);
-        }
-
-        return position;
     }
 }

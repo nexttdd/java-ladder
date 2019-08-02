@@ -37,6 +37,6 @@ public class Bridge {
             return position + 1;
         }
 
-        return 0;
+        return position;
     }
 }
