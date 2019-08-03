@@ -25,9 +25,7 @@ public class ConsoleMain {
 
         persons.settingResult(ladder, results);
         String personName = InputView.personResult();
-
-
-
+        ResultView.textResultPerson(persons.getLadderResult(personName));
 
     }
 }

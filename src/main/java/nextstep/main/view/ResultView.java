@@ -24,8 +24,9 @@ public class ResultView {
                 .forEach(System.out::print);
     }
 
-    public static void textResultPerson(){
+    public static void textResultPerson(String result){
         System.out.println("실행 결과");
+        System.out.println(result);
     }
 
     public static void textResultAll(){
