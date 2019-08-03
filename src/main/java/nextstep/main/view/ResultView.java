@@ -24,10 +24,6 @@ public class ResultView {
                 .forEach(System.out::print);
     }
 
-    public static void resultWhoWin(){
-        System.out.println("결과를 보고 싶은 사람은?");
-    }
-
     public static void textResultAll(){
         System.out.println("실행 결과");
     }

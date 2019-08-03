@@ -32,4 +32,12 @@ public class Persons {
     public List<Person> getPersons() {
         return this.persons;
     }
+
+    public int getStartPosition(String personName) {
+
+    }
+
+    public void settingResult(Persons results) {
+
+    }
 }

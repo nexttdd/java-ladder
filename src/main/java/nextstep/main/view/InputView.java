@@ -21,4 +21,9 @@ public class InputView {
         return scanner.nextInt();
     }
 
+    public static String personResult(){
+        System.out.println("결과를 보고 싶은 사람은?\n");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
 }

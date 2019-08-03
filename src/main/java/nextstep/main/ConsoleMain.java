@@ -21,5 +21,12 @@ public class ConsoleMain {
         ResultView.executeNames(persons);
         ResultView.drawLadder(ladder);
         ResultView.executeResults(results);
+
+        persons.settingResult(results);
+
+        String personName = InputView.personResult();
+        int position = persons.getStartPosition(personName);
+
+
     }
 }
