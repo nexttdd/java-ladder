@@ -1,5 +1,7 @@
 package nextstep.main.vo;
 
+import nextstep.main.view.ResultView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -48,12 +50,13 @@ public class Persons {
     }
 
     public void settingResult(Ladder ladder, Persons results) {
-        //TODO : 모든 참여자 결과를 확인해서 저장
         for (Person person : persons) {
             int position = 0;
             position = ladder.getResult(position);
-            //TODO : 최종위치를 가지고 결과를 가져와서 저장
-//            this.results.add(new Person(results.getResult(position)));
+            this.results.add(results.getPersons().get(position));
+            System.out.println(results.getPersons().get(position));
         }
+
+
     }
 }

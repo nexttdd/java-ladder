@@ -24,13 +24,12 @@ public class Ladder {
     }
 
     public int getResult(int position) {
-        //TODO : Line을 반복하면서 position값 구하기
-        List<Boolean> line = getLines().get(position).getPoints();
-        for(Boolean isCheck : line){
-            if(isCheck)
-                return 1;
-            return 0;
+        int currentPosition = position;
+
+        for(int i = 0; i< lines.size(); i++) {
+          currentPosition = lines.get(i).getPlusMinusPosition(currentPosition);
         }
-        return 0;
+
+        return currentPosition;
     }
 }

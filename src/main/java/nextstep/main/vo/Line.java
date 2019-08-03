@@ -63,7 +63,7 @@ public class Line {
     }
 
     private String pointToString(boolean b) {
-        if(b) {
+        if (b) {
             return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, DASH);
         }
         return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, EMPTY);
@@ -71,5 +71,26 @@ public class Line {
 
     public List<Boolean> getPoints() {
         return points;
+    }
+
+    public int getPlusMinusPosition(int currentPosition) {
+        if (currentPosition == 0) {
+            return points.get(0) ? currentPosition + 1 : currentPosition;
+        }
+
+        if (currentPosition == points.size()) {
+            return points.get(currentPosition - 1) ? currentPosition - 1 : currentPosition;
+        }
+
+        if (points.get(currentPosition)) {
+            return currentPosition + 1;
+        }
+
+
+        if(points.get(currentPosition-1)) {
+            return currentPosition -1;
+        }
+
+        return currentPosition;
     }
 }
