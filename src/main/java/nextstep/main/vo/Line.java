@@ -68,4 +68,8 @@ public class Line {
         }
         return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, EMPTY);
     }
+
+    public List<Boolean> getPoints() {
+        return points;
+    }
 }
