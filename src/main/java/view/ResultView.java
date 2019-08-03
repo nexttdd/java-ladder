@@ -14,7 +14,7 @@ public class ResultView {
 
 
     public static void printResult(Players players, List<Line> lines) {
-        System.out.println("실행결과\n");
+        System.out.println("사다리 결과\n");
         printPlayers(players);
         printLines(lines);
     }
@@ -42,5 +42,13 @@ public class ResultView {
             }
         });
         System.out.println(stringBuilder.toString());
+    }
+
+    public static void printSingleResult() {
+        System.out.println("실행 결과\n");
+    }
+
+    public static void printAllResult() {
+        System.out.println("실행 결과\n");
     }
 }
