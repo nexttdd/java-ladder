@@ -18,7 +18,6 @@ public class Persons {
         List<Person> persons = Arrays.stream(split(names))
                 .map(Person::new)
                 .collect(Collectors.toList());
-
         return new Persons(persons);
     }
 

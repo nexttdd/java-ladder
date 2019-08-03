@@ -10,12 +10,18 @@ public class ResultView {
         persons.getPersons()
                 .forEach(System.out::print);
 
+
         System.out.println();
     }
 
     public static void drawLadder(Ladder ladder) {
         ladder.getLines()
                 .forEach(System.out::println);
+    }
+
+    public static void executeResults(Persons results){
+        results.getPersons()
+                .forEach(System.out::print);
     }
 
     public static void resultWhoWin(){
