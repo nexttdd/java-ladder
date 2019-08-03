@@ -50,13 +50,9 @@ public class Persons {
     }
 
     public void settingResult(Ladder ladder, Persons results) {
-        for (Person person : persons) {
-            int position = 0;
-            position = ladder.getResult(position);
-            this.results.add(results.getPersons().get(position));
-            System.out.println(results.getPersons().get(position));
+        for (int i = 0 ; i < persons.size() ; i++ ) {
+            int resultPosition = ladder.getResult(i);
+            this.results.add(results.getPersons().get(resultPosition));
         }
-
-
     }
 }
