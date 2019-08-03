@@ -23,4 +23,8 @@ public class Person {
 
         return str;
     }
+
+    public boolean isMatch(String personName) {
+        return name.equals(personName);
+    }
 }

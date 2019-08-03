@@ -1,5 +1,6 @@
 package nextstep.main.vo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -9,9 +10,11 @@ public class Persons {
     private static final String NAME_SEPARATOR = ",";
 
     private List<Person> persons;
+    private List<Person> results;
 
     public Persons(List<Person> players) {
         this.persons = Collections.unmodifiableList(players);
+        this.results = new ArrayList<>();
     }
 
     public static Persons generate(String names) {
@@ -34,10 +37,23 @@ public class Persons {
     }
 
     public int getStartPosition(String personName) {
-
+        int index = 0;
+        for (Person person : persons) {
+            if (person.isMatch(personName)) {
+                return index;
+            }
+            index++;
+        }
+        throw new IllegalArgumentException("잘못된 참여자 이름입니다.");
     }
 
-    public void settingResult(Persons results) {
-
+    public void settingResult(Ladder ladder, Persons results) {
+        //TODO : 모든 참여자 결과를 확인해서 저장
+        for (Person person : persons) {
+            int position = 0;
+            position = ladder.getResult(position);
+            //TODO : 최종위치를 가지고 결과를 가져와서 저장
+//            this.results.add(new Person(results.getResult(position)));
+        }
     }
 }

@@ -22,10 +22,11 @@ public class ConsoleMain {
         ResultView.drawLadder(ladder);
         ResultView.executeResults(results);
 
-        persons.settingResult(results);
 
+        persons.settingResult(ladder, results);
         String personName = InputView.personResult();
-        int position = persons.getStartPosition(personName);
+
+
 
 
     }

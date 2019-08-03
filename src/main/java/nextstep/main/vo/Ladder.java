@@ -22,4 +22,9 @@ public class Ladder {
     public List<Line> getLines() {
         return this.lines;
     }
+
+    public int getResult(int position) {
+        //TODO : Line을 반복하면서 position값 구하기
+        return 0;
+    }
 }
