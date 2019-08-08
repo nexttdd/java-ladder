@@ -5,14 +5,14 @@ import java.util.List;
 
 public class LadderGame {
     private final Players players;
-    private final int ladderHeight;
+    private final String[] results;
 
-    public LadderGame(String[] playerNames, int ladderHeight) {
+    public LadderGame(String[] playerNames, String[] results) {
         this.players = new Players(playerNames);
-        this.ladderHeight = ladderHeight;
+        this.results = results;
     }
 
-    public List<Line> start() {
+    public List<Line> start(int ladderHeight) {
         List<Line> lines = new ArrayList<>();
 
         for(int i=0; i<ladderHeight; i++) {
@@ -24,5 +24,9 @@ public class LadderGame {
 
     public Players getPlayers() {
         return players;
+    }
+
+    public String[] getResults() {
+        return results;
     }
 }
