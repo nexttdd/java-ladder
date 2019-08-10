@@ -1,5 +1,6 @@
 package nextstep.main.view;
 
+import nextstep.main.utils.CommonUtils;
 import nextstep.main.vo.Ladder;
 import nextstep.main.vo.Persons;
 
@@ -21,7 +22,7 @@ public class ResultView {
     }
 
     public static void executeResults(List<String> results) {
-        results.forEach(System.out::print);
+        results.forEach(name -> System.out.print(CommonUtils.arrangeName(name)));
         System.out.println();
     }
 
