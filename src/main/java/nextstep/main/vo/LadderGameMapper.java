@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class LadderGameMapper {
-//    private Map<String, String> resultsMap;
     private List<String> results;//사다리탄 결과
 
     public LadderGameMapper(List<String> results) {
