@@ -9,7 +9,7 @@ public class Players {
     private static final int MIN_PLAYER_NUMBER = 2;
 
     public Players(String[] playerNames) {
-        if(playerNames.length < MIN_PLAYER_NUMBER) {
+        if (playerNames.length < MIN_PLAYER_NUMBER) {
             throw new IllegalArgumentException();
         }
 
@@ -24,5 +24,13 @@ public class Players {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public int size() {
+        return players.size();
+    }
+
+    public Player getPlayer(int inedex) {
+        return players.get(inedex);
     }
 }

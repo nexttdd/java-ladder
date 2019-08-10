@@ -1,10 +1,20 @@
 import domain.LadderGame;
-import view.InputView;
-import view.ResultView;
+import domain.LadderGameResult;
+import domain.Line;
+        import view.InputView;
+        import view.ResultView;
+
+        import java.util.List;
 
 public class LadderGameMain {
     public static void main(String[] args) {
         LadderGame ladderGame = new LadderGame(InputView.getPlayerNames(), InputView.getPlayResults());
-        ResultView.printResult(ladderGame, ladderGame.start(InputView.getLadderHeight()));
+        List<Line> results = ladderGame.start(InputView.getLadderHeight());
+        ResultView.printResult(ladderGame, results);
+        LadderGameResult ladderGameResult = new LadderGameResult(ladderGame, results);
+        String whoResult1 = InputView.getPeopleToSeeResult();
+        String whoResult2 = InputView.getPeopleToSeeResult();
+        ResultView.printWhoResult(ladderGameResult.findResult(whoResult1));
+        ResultView.printWhoResult(ladderGameResult.findResult(whoResult2));
     }
 }

@@ -51,7 +51,8 @@ public class ResultView {
         System.out.println(stringBuilder.toString());
     }
 
-    public static void printAllResult() {
+    public static void printWhoResult(String result) {
         System.out.println("실행 결과\n");
+        System.out.println(result);
     }
 }
