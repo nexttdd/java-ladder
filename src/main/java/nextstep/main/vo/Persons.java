@@ -43,26 +43,27 @@ public class Persons {
         return LadderGameMapper.generate(userResults);
     }
 
-    public String getLadderResult(String personName) {
-        if (personName.equals("all")) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < persons.size(); i++) {
-                sb.append(persons.get(i).toString() + " : " + results.get(i).toString());
-                sb.append("\n");
-            }
-            return sb.toString();
-        }
-        int resultIdx = 0;
-        for (int i = 0; i < persons.size(); i++) {
-            if (personName.equals(persons.get(i))) {
-                resultIdx = i;
-                break;
-            }
-        }
-        return results.get(resultIdx).toString();
-    }
+//    public String getLadderResult(String personName) {
+//        if (personName.equals("all")) {
+//            StringBuilder sb = new StringBuilder();
+//            for (int i = 0; i < persons.size(); i++) {
+//                sb.append(persons.get(i).toString() + " : " + results.get(i).toString());
+//                sb.append("\n");
+//            }
+//            return sb.toString();
+//        }
+//        int resultIdx = 0;
+//        for (int i = 0; i < persons.size(); i++) {
+//            if (personName.equals(persons.get(i))) {
+//                resultIdx = i;
+//                break;
+//            }
+//        }
+//        return results.get(resultIdx).toString();
+//    }
 
     public int findIndexByName(String name) {
+
         int index = 0;
 
         for (Person person : persons) {

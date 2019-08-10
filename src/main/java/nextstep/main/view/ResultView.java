@@ -22,6 +22,7 @@ public class ResultView {
 
     public static void executeResults(List<String> results) {
         results.forEach(System.out::print);
+        System.out.println();
     }
 
     public static void textResultPerson(String result) {

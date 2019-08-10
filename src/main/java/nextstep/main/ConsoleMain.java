@@ -26,10 +26,10 @@ public class ConsoleMain {
         ResultView.drawLadder(ladder);
         ResultView.executeResults(results);
 
-//        persons.settingResult(ladder, results);
         LadderGameMapper ladderGameMapper = persons.settingResult(ladder, results);
         String personName = InputView.personResult();
-        String result = ladderGameMapper.findResultByName(persons.findIndexByName(personName));
-        ResultView.textResultPerson(persons.getLadderResult(result));
+
+        String result = ladderGameMapper.all(personName, persons);
+        ResultView.textResultPerson(result);
     }
 }

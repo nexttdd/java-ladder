@@ -20,4 +20,17 @@ public class LadderGameMapper {
         return Optional.ofNullable(results.get(index))
                 .orElse("참여자 이름이 잘못됐습니다.");
     }
+
+    public String all(String personName, Persons persons) {
+        if("all".equals(personName)){
+            List<Person> person = persons.getPersons();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < person.size(); i++) {
+                sb.append(person.get(i).toString().trim() + " : " + results.get(i));
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+          return findResultByName(persons.findIndexByName(personName));
+    }
 }
