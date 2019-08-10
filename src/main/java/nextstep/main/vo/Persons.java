@@ -1,6 +1,7 @@
 package nextstep.main.vo;
 
-import nextstep.main.view.ResultView;
+
+import nextstep.main.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,10 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Persons {
-    private static final String NAME_SEPARATOR = ",";
-
-    private List<Person> persons;
-    private List<Person> results;
+    private List<Person> persons;//사람이름, 초기 사다리 순서
+    private List<String> results;//사다리탄 결과
 
     public Persons(List<Person> players) {
         this.persons = Collections.unmodifiableList(players);
@@ -20,14 +19,10 @@ public class Persons {
     }
 
     public static Persons generate(String names) {
-        List<Person> persons = Arrays.stream(split(names))
+        List<Person> persons = Arrays.stream(CommonUtils.split(names))
                 .map(Person::new)
                 .collect(Collectors.toList());
         return new Persons(persons);
-    }
-
-    private static String[] split(String value) {
-        return value.split(NAME_SEPARATOR);
     }
 
     public int getPersonCount() {
@@ -49,10 +44,11 @@ public class Persons {
         throw new IllegalArgumentException("잘못된 참여자 이름입니다.");
     }
 
-    public void settingResult(Ladder ladder, Persons results) {
+    //result
+    public void settingResult(Ladder ladder, List<String> results) {
         for (int i = 0 ; i < persons.size() ; i++ ) {
             int resultPosition = ladder.getResult(i);
-            this.results.add(results.getPersons().get(resultPosition));
+            this.results.add(results.get(resultPosition));
         }
     }
 

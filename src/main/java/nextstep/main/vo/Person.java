@@ -7,18 +7,12 @@ public class Person {
     private static final int MAX_NAME_COUNT = 5;
 
     private String name;
-    private String result;
 
     public Person(String name) {
         if (name.length() > MAX_NAME_COUNT)
             throw new IllegalArgumentException();
 
         this.name = name;
-    }
-
-    public Person(String name, String result) {
-        this.name = name;
-        this.result = result;
     }
 
     @Override

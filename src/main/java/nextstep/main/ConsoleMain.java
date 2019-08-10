@@ -1,9 +1,12 @@
 package nextstep.main;
 
+import nextstep.main.utils.CommonUtils;
 import nextstep.main.view.InputView;
 import nextstep.main.view.ResultView;
 import nextstep.main.vo.Ladder;
 import nextstep.main.vo.Persons;
+
+import java.util.List;
 
 public class ConsoleMain {
     public static void main(String []args){
@@ -13,7 +16,7 @@ public class ConsoleMain {
         int ladderHeight = InputView.maxLadderHeight();
 
         Persons persons = Persons.generate(playersName);
-        Persons results = Persons.generate(playerResults);
+        List<String> results = CommonUtils.generates(playerResults);
 
         Ladder ladder = new Ladder();
         ladder.generateLadder(ladderHeight, persons.getPersonCount());
@@ -22,10 +25,8 @@ public class ConsoleMain {
         ResultView.drawLadder(ladder);
         ResultView.executeResults(results);
 
-
         persons.settingResult(ladder, results);
         String personName = InputView.personResult();
         ResultView.textResultPerson(persons.getLadderResult(personName));
-
     }
 }

@@ -3,6 +3,8 @@ package nextstep.main.view;
 import nextstep.main.vo.Ladder;
 import nextstep.main.vo.Persons;
 
+import java.util.List;
+
 public class ResultView {
     public static void executeNames(Persons persons){
         System.out.println("사다리 결과");
@@ -19,9 +21,8 @@ public class ResultView {
                 .forEach(System.out::println);
     }
 
-    public static void executeResults(Persons results){
-        results.getPersons()
-                .forEach(System.out::print);
+    public static void executeResults(List<String> results){
+        results.forEach(System.out::print);
     }
 
     public static void textResultPerson(String result){
