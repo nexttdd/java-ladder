@@ -3,9 +3,6 @@ package nextstep.main.vo;
 import nextstep.main.utils.CommonUtils;
 import nextstep.main.utils.Consts;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class Person {
     private String name;
 

@@ -57,20 +57,18 @@ public class Line {
     @Override
     public String toString() {
         final StringBuilder str = new StringBuilder("    |");
-        points.forEach(b -> str.append(pointToString(b)));
+
+        points.forEach(isLine -> str.append(pointToString(isLine)));
 
         return str.toString();
     }
 
-    private String pointToString(boolean b) {
-        if (b) {
+    private String pointToString(boolean isLine) {
+        if (isLine) {
             return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, DASH);
         }
-        return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, EMPTY);
-    }
 
-    public List<Boolean> getPoints() {
-        return points;
+        return StringUtils.leftPad(VERTICAL, HORIZONTAL_SIZE, EMPTY);
     }
 
     public int getPlusMinusPosition(int currentPosition) {
@@ -87,8 +85,8 @@ public class Line {
         }
 
 
-        if(points.get(currentPosition-1)) {
-            return currentPosition -1;
+        if (points.get(currentPosition - 1)) {
+            return currentPosition - 1;
         }
 
         return currentPosition;

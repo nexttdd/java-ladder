@@ -26,8 +26,8 @@ public class Ladder {
     public int getResult(int position) {
         int currentPosition = position;
 
-        for(int i = 0; i< lines.size(); i++) {
-          currentPosition = lines.get(i).getPlusMinusPosition(currentPosition);
+        for (int i = 0; i < lines.size(); i++) {
+            currentPosition = lines.get(i).getPlusMinusPosition(currentPosition);
         }
 
         return currentPosition;

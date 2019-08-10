@@ -1,11 +1,12 @@
 package nextstep.main.vo;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
+import static nextstep.main.utils.Consts.ALL_PERSON;
+
 public class LadderGameMapper {
-    private List<String> results;//사다리탄 결과
+    private List<String> results;
 
     public LadderGameMapper(List<String> results) {
         this.results = results;
@@ -15,14 +16,13 @@ public class LadderGameMapper {
         return new LadderGameMapper(userResults);
     }
 
-    //참여자이름으로 결과 확인하기
-    public String findResultByName(int index) {
+    public String findResult(int index) {
         return Optional.ofNullable(results.get(index))
                 .orElse("참여자 이름이 잘못됐습니다.");
     }
 
-    public String all(String personName, Persons persons) {
-        if("all".equals(personName)){
+    public String getResult(String personName, Persons persons) {
+        if (ALL_PERSON.equals(personName)) {
             List<Person> person = persons.getPersons();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < person.size(); i++) {
@@ -31,6 +31,6 @@ public class LadderGameMapper {
             }
             return sb.toString();
         }
-          return findResultByName(persons.findIndexByName(personName));
+        return findResult(persons.findIndexByName(personName));
     }
 }

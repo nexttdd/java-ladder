@@ -9,8 +9,10 @@ import nextstep.main.vo.Persons;
 
 import java.util.List;
 
+import static nextstep.main.utils.Consts.ALL_PERSON;
+
 public class ConsoleMain {
-    public static void main(String []args){
+    public static void main(String[] args) {
         String playersName = InputView.playerNames();
         String playerResults = InputView.ladderResultPreDiction();
 
@@ -27,9 +29,11 @@ public class ConsoleMain {
         ResultView.executeResults(results);
 
         LadderGameMapper ladderGameMapper = persons.settingResult(ladder, results);
-        String personName = InputView.personResult();
-
-        String result = ladderGameMapper.all(personName, persons);
-        ResultView.textResultPerson(result);
+        String personName = "";
+        while (!ALL_PERSON.equals(personName)) {
+            personName = InputView.personResult();
+            String result = ladderGameMapper.getResult(personName, persons);
+            ResultView.textResultPerson(result);
+        }
     }
 }

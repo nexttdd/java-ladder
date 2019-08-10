@@ -9,7 +9,7 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static String ladderResultPreDiction(){
+    public static String ladderResultPreDiction() {
         System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
@@ -21,7 +21,7 @@ public class InputView {
         return scanner.nextInt();
     }
 
-    public static String personResult(){
+    public static String personResult() {
         System.out.println("결과를 보고 싶은 사람은?");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
