@@ -13,8 +13,8 @@ public class LadderGameMain {
         ResultView.printResult(ladderGame, results);
         LadderGameResult ladderGameResult = new LadderGameResult(ladderGame, results);
         String whoResult1 = InputView.getPeopleToSeeResult();
-        String whoResult2 = InputView.getPeopleToSeeResult();
         ResultView.printWhoResult(ladderGameResult.findResult(whoResult1));
+        String whoResult2 = InputView.getPeopleToSeeResult();
         ResultView.printWhoResult(ladderGameResult.findResult(whoResult2));
     }
 }
