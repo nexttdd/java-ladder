@@ -4,6 +4,7 @@ import nextstep.main.utils.CommonUtils;
 import nextstep.main.view.InputView;
 import nextstep.main.view.ResultView;
 import nextstep.main.vo.Ladder;
+import nextstep.main.vo.LadderGameMapper;
 import nextstep.main.vo.Persons;
 
 import java.util.List;
@@ -25,7 +26,8 @@ public class ConsoleMain {
         ResultView.drawLadder(ladder);
         ResultView.executeResults(results);
 
-        persons.settingResult(ladder, results);
+//        persons.settingResult2(ladder, results);
+        LadderGameMapper ladderGameMapper = persons.settingResult2(ladder, results);
         String personName = InputView.personResult();
         ResultView.textResultPerson(persons.getLadderResult(personName));
     }

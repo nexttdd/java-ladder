@@ -52,6 +52,18 @@ public class Persons {
         }
     }
 
+    //result
+    public LadderGameMapper settingResult2(Ladder ladder, List<String> results) {
+        List<String> userResults = new ArrayList<>();
+
+        for (int i = 0 ; i < persons.size() ; i++ ) {
+            int resultPosition = ladder.getResult(i);
+            userResults.add(results.get(resultPosition));
+        }
+
+        return LadderGameMapper.generate(userResults);
+    }
+
     public String getLadderResult(String personName) {
         if(personName.equals("all")){
             StringBuilder sb = new StringBuilder();
@@ -69,5 +81,9 @@ public class Persons {
             }
         }
         return results.get(resultIdx).toString();
+    }
+
+    public int findIndexByName(String name) {
+        int index = 0;
     }
 }
