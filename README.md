@@ -23,3 +23,8 @@
  * ResultView
  * ConsoleMain
  * 최종결과 확인해서 라인별로 반복한 값을 리턴시킴
+ 
+ #190810 리팩토링
+  - Persons의 객체에 results값 없애기
+  - Persons의 객체에 results는 List<String>으로 만들어 주기
+  - 최종결과엔 Person 객체와 결과 객체를 매핑해주기
