@@ -40,7 +40,7 @@ public class LadderGameResult {
             return getAllResults();
         }
 
-        return totalResult.get(peopleToSeeResult);
+        return totalResult.get(new Player(peopleToSeeResult));
     }
 
     private String getAllResults() {

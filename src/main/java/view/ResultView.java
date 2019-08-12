@@ -30,7 +30,7 @@ public class ResultView {
     }
 
     private static void printResults(String[] results) {
-        System.out.println(" " + Arrays.stream(results).collect(Collectors.joining(" ")));
+        System.out.println(" " + Arrays.stream(results).collect(Collectors.joining(" ")) + "\n");
     }
 
     private static void printLines(List<Line> lines) {
