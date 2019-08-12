@@ -1,10 +1,10 @@
 import domain.LadderGame;
 import domain.LadderGameResult;
 import domain.Line;
-        import view.InputView;
-        import view.ResultView;
+import view.InputView;
+import view.ResultView;
 
-        import java.util.List;
+import java.util.List;
 
 public class LadderGameMain {
     public static void main(String[] args) {

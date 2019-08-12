@@ -23,6 +23,6 @@ public class PlayerTest {
     public void toString_테스트() {
         Player sy = new Player("김서영");
 
-        assertThat(sy.toString()).isEqualTo("김서영");
+        assertThat(sy.toString()).isEqualTo(" 김서영 ");
     }
 }

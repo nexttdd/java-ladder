@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class LadderGameResult {
 
+    private static final String ALL_PLAYER = "all";
+    private static final String RESULT_DELIMITER = " : ";
     private Map<Player, String> totalResult = new HashMap<>();
 
     public LadderGameResult(LadderGame ladderGame, List<Line> lines) {
@@ -34,8 +36,7 @@ public class LadderGameResult {
     }
 
     public String findResult(String peopleToSeeResult) {
-
-        if (peopleToSeeResult.equals("all")) {
+        if (ALL_PLAYER.equals(peopleToSeeResult)) {
             return getAllResults();
         }
 
@@ -44,12 +45,10 @@ public class LadderGameResult {
 
     private String getAllResults() {
         StringBuilder sb = new StringBuilder();
-        totalResult.keySet().forEach(key -> {
-            sb.append(key.toString())
-                    .append(" : ")
-                    .append(totalResult.get(key))
-                    .append("\n");
-        });
+        totalResult.keySet().forEach(key -> sb.append(key.toString())
+                .append(RESULT_DELIMITER)
+                .append(totalResult.get(key))
+                .append("\n"));
 
         return sb.toString();
     }
