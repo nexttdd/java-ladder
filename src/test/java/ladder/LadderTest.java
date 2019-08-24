@@ -2,9 +2,14 @@ package ladder;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LadderTest {
     int height;
@@ -49,7 +54,7 @@ public class LadderTest {
         name = new String[]{};
 
         //then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Ladder.of(name, height));
+        assertThrows(IllegalArgumentException.class, () -> Ladder.of(name, height));
     }
 
     @Test
@@ -58,10 +63,14 @@ public class LadderTest {
         name = null;
 
         //then
-        Assertions.assertThrows(NullPointerException.class, () -> Ladder.of(name, height));
+        assertThrows(NullPointerException.class, () -> Ladder.of(name, height));
     }
 
-    @Test
-    void 비정상_이름_입력_확인() {
+    @DisplayName("비정상 이름 입력 확인")
+    @ParameterizedTest
+    @ValueSource(strings = {"123456", ""})
+    void inputIllegalName(String inputName) {
+        name = new String[]{inputName};
+        assertThrows(IllegalArgumentException.class, () -> Ladder.of(name, height));
     }
 }

@@ -4,13 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Ladder {
     private static int MIN_NAME_COUNT= 1;
+    private static int MAX_NAME_LENGTH = 5;
     private String[] names;
     private List<Line> lines;
 
     private Ladder(String[] names, List<Line> lines) {
+        validation(names, lines);
+
+        this.names = names;
+        this.lines = lines;
+    }
+
+    private void validation(String[] names, List<Line> lines) {
         if(Objects.isNull(names)){
             throw new NullPointerException();
         }
@@ -19,12 +28,21 @@ public class Ladder {
             throw new IllegalArgumentException();
         }
 
+        Stream.of(names).forEach(this::validateName);
+
         if(lines.isEmpty()) {
             throw new IllegalArgumentException();
         }
+    }
 
-        this.names = names;
-        this.lines = lines;
+    private void validateName(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static Ladder of(String[] names, int height) {
