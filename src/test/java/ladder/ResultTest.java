@@ -11,7 +11,7 @@ public class ResultTest {
     @ValueSource(strings={"꽝,5000,꽝,3000", "100,꽝"})
     void 결과입력하기(String input) {
         //when
-        Result result = Result.of(input);
+        Result result = Result2.of(input);
 
         //then
         assertThat(result).isNotNull();

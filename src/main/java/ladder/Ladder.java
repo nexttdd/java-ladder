@@ -84,11 +84,22 @@ public class Ladder {
     }
 
     public Result2 start(List<String> results) {
-        Map<String, String> result = new HashMap<>();
+        Map<String, String> gameResults = new HashMap<>();
 
         for(int i = 0; i<names.length; i++) {
-
-
+            int lastPosition = findLastPosition2(i);
+            gameResults.put(names[i], results.get(lastPosition));
         }
+
+        return Result2.of(gameResults);
+    }
+
+    public int findLastPosition2(int startPosition) {
+        int position = startPosition;
+        for (Line line : lines) {
+            position = line.nextPosition(position);
+        }
+
+        return position;
     }
 }

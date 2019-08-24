@@ -18,7 +18,7 @@ public class ConsoleMain {
         String userName = "";
         while (!"all".equals(userName)) {
             userName = InputView.inputCheckResult();
-            OutputView.printReward(userName, ladder, result);
+            OutputView.printReward(userName, result);
         }
     }
 }

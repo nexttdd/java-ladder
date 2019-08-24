@@ -3,10 +3,11 @@ package ladder.view;
 import ladder.Bridge;
 import ladder.Ladder;
 import ladder.Line;
-import ladder.Result;
+import ladder.Result2;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Set;
 
 public class OutputView {
     private static final int LENGTH = 6;
@@ -14,15 +15,15 @@ public class OutputView {
     private static final String VERTICAL_LINE = "|";
     private static final String BRIDGE_LINE = "-";
 
-    public static void printLadders(Ladder ladder, Result result) {
+    public static void printLadders(Ladder ladder, List<String> result) {
         printNames(ladder.getNames());
         printLadder(ladder.getLines());
         printResult(result);
     }
 
-    private static void printResult(Result result) {
+    private static void printResult(List<String> result) {
         StringBuilder sb = new StringBuilder();
-        result.getResults()
+        result
                 .forEach(data -> sb.append(StringUtils.leftPad(data, LENGTH)));
 
         System.out.println(sb.toString());
@@ -59,16 +60,21 @@ public class OutputView {
         sb.append(StringUtils.leftPad(VERTICAL_LINE, LENGTH, padCharacter));
     }
 
-    public static void printReward(String userName, Ladder ladder, Result result) {
+    public static void printReward(String userName, Result2 result) {
         System.out.println("\n실행 결과");
 
         if ("all".equals(userName)) {
-            ladder.getNames()
-                    .forEach(name ->
-                            System.out.println(name + " : " + result.findByPosition(ladder, name)));
+            printAll(result);
             return;
         }
 
-        System.out.println(userName + " : " + result.findByPosition(ladder, userName));
+        System.out.println(userName + " : " + result.getResult(userName));
+    }
+
+    private static void printAll(Result2 result) {
+        Set<String> names = result.findAll();
+        names.forEach(s -> {
+            System.out.println(s + " : " + result.getResult(s));
+        });
     }
 }
