@@ -1,5 +1,7 @@
 package ladder.view;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -9,10 +11,10 @@ public class InputView {
         return sc.nextLine().split(",");
     }
 
-    public static String inputResult() {
+    public static List<String> inputResult() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
-        return sc.nextLine();
+        return Arrays.asList(sc.nextLine().split(","));
     }
 
     public static int inputLadderHeight() {

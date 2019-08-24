@@ -3,15 +3,17 @@ package ladder;
 import ladder.view.InputView;
 import ladder.view.OutputView;
 
+import java.util.List;
+
 public class ConsoleMain {
     public static void main(String[] args) {
         String[] names = InputView.inputNames();
-        Result result = Result.of(InputView.inputResult());
+        List<String> results = InputView.inputResult();
         int ladderHeight = InputView.inputLadderHeight();
 
         Ladder ladder = Ladder.of(names, ladderHeight);
-
-        OutputView.printLadders(ladder, result);
+        Result2 result = ladder.start(results);
+        OutputView.printLadders(ladder, results);
 
         String userName = "";
         while (!"all".equals(userName)) {

@@ -1,9 +1,6 @@
 package ladder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Ladder {
@@ -84,5 +81,14 @@ public class Ladder {
 
     public List<Line> getLines() {
         return lines;
+    }
+
+    public Result2 start(List<String> results) {
+        Map<String, String> result = new HashMap<>();
+
+        for(int i = 0; i<names.length; i++) {
+
+
+        }
     }
 }
