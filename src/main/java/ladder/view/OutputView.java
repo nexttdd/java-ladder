@@ -6,7 +6,6 @@ import ladder.Line;
 import ladder.Result;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class OutputView {
@@ -16,7 +15,7 @@ public class OutputView {
     private static final String BRIDGE_LINE = "-";
 
     public static void printLadders(Ladder ladder, Result result) {
-        printNames(ladder.getNames2());
+        printNames(ladder.getNames());
         printLadder(ladder.getLines());
         printResult(result);
     }
@@ -24,38 +23,26 @@ public class OutputView {
     private static void printResult(Result result) {
         StringBuilder sb = new StringBuilder();
         result.getResults()
-                .forEach(data -> {
-                    sb.append(StringUtils.leftPad(data, LENGTH));
-                });
-        System.out.println(sb.toString());
-    }
+                .forEach(data -> sb.append(StringUtils.leftPad(data, LENGTH)));
 
-    private static void printNames(String[] names) {
-        StringBuilder sb = new StringBuilder();
-        Arrays.stream(names)
-                .forEach(name -> {
-                    sb.append(StringUtils.leftPad(name, LENGTH));
-                });
         System.out.println(sb.toString());
     }
 
     private static void printNames(List<String> names) {
         StringBuilder sb = new StringBuilder();
         names.forEach(name -> sb.append(StringUtils.leftPad(name, LENGTH)));
+
         System.out.println(sb.toString());
     }
 
     private static void printLadder(List<Line> lines) {
-        lines.forEach(line -> {
-            printLine(line.getBridges());
-        });
+        lines.forEach(line -> printLine(line.getBridges()));
     }
 
     private static void printLine(List<Bridge> bridges) {
         StringBuilder sb = new StringBuilder();
-        bridges.forEach(bridge -> {
-            printBridge(sb, bridge);
-        });
+        bridges.forEach(bridge -> printBridge(sb, bridge));
+
         System.out.println(sb.toString());
     }
 
@@ -77,7 +64,7 @@ public class OutputView {
 
         if ("all".equals(userName)) {
             //TODO : ladder를 넘기도록 수정
-            ladder.getNames2()
+            ladder.getNames()
                     .forEach(name ->
                             System.out.println(name + " : " + result.findByPosition(ladder.findLastPosition(name)))
                     );

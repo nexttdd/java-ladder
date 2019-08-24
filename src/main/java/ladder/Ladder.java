@@ -5,11 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Ladder {
+    private static int MIN_NAME_COUNT= 1;
     private String[] names;
     private List<Line> lines;
 
     private Ladder(String[] names, List<Line> lines) {
-        //TODO : validation (최소 이름 1개, lines null check)
+        if(names.length < MIN_NAME_COUNT) {
+            throw new IllegalArgumentException();
+        }
+
+        if(lines.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         this.names = names;
         this.lines = lines;
     }
@@ -47,11 +55,7 @@ public class Ladder {
         throw new IllegalArgumentException("참여자 이름이 없습니다.");
     }
 
-    public String[] getNames() {
-        return names;
-    }
-
-    public List<String> getNames2() {
+    public List<String> getNames() {
         return Arrays.asList(names);
     }
 

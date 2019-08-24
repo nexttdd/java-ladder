@@ -1,5 +1,6 @@
 package ladder;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,6 +36,13 @@ public class LadderTest {
         int lastPosition = ladder.findLastPosition("yo");
 
         //then
-        assertThat(lastPosition).isEqualTo(0);
+        assertThat(lastPosition).isEqualTo(startPosition);
+    }
+
+    @Test
+    void 사람이_0명인_경우() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+        });
     }
 }
