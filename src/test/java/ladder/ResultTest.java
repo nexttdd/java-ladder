@@ -4,14 +4,18 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ResultTest {
-    @ParameterizedTest
-    @ValueSource(strings={"꽝,5000,꽝,3000", "100,꽝"})
-    void 결과입력하기(String input) {
+    Map<String, String> map = new HashMap<>();
+
+    @Test
+    void 결과입력하기() {
         //when
-        Result result = Result2.of(input);
+        Result result = Result.of(map);
 
         //then
         assertThat(result).isNotNull();
@@ -20,14 +24,12 @@ public class ResultTest {
     @Test
     void 한명결과_확인하기() {
         //given
-        String input = "꽝";
+        map.put("name", "꽝");
 
         //when
-        Result result = Result.of(input);
-
-        Ladder ladder =  Ladder.of(new String[]{"name"}, 3);
+        Result result = Result.of(map);
 
         //then
-        assertThat(result.findByPosition(ladder, "name")).isEqualTo("꽝");
+        assertThat(result.getResult("name")).isEqualTo("꽝");
     }
 }

@@ -1,11 +1,9 @@
 package ladder;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +40,7 @@ public class LadderTest {
         int startPosition = 0;
 
         //when
-        int lastPosition = ladder.findLastPosition("yo");
+        int lastPosition = ladder.findLastPosition(startPosition);
 
         //then
         assertThat(lastPosition).isEqualTo(startPosition);

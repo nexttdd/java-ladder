@@ -1,24 +1,24 @@
 package ladder;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Result {
-    private List<String> results;
+    private Map<String, String> ladderResults;
 
-    private Result(String input) {
-        this.results = Arrays.asList(input.split(","));
+    private Result(Map<String, String> ladderResults) {
+        this.ladderResults = ladderResults;
     }
 
-    public static Result of(String input) {
-        return new Result(input);
+    public static Result of(Map<String, String> ladderResults) {
+        return new Result(ladderResults);
     }
 
-    public String findByPosition(Ladder ladder, String name) {
-        return results.get(ladder.findLastPosition(name));
+    public String getResult(String userName) {
+        return ladderResults.get(userName);
     }
 
-    public List<String> getResults() {
-        return results;
+    public Set<String> findAll() {
+        return ladderResults.keySet();
     }
 }

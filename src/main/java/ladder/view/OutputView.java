@@ -1,9 +1,6 @@
 package ladder.view;
 
-import ladder.Bridge;
-import ladder.Ladder;
-import ladder.Line;
-import ladder.Result2;
+import ladder.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -60,21 +57,21 @@ public class OutputView {
         sb.append(StringUtils.leftPad(VERTICAL_LINE, LENGTH, padCharacter));
     }
 
-    public static void printReward(String userName, Result2 result) {
+    public static void printReward(String userName, Result result) {
         System.out.println("\n실행 결과");
 
-        if ("all".equals(userName)) {
+        if (Const.FORMAT_ALL.equals(userName)) {
             printAll(result);
             return;
         }
 
-        System.out.println(userName + " : " + result.getResult(userName));
+        System.out.println(userName + Const.FORMAT_COLON + result.getResult(userName));
     }
 
-    private static void printAll(Result2 result) {
+    private static void printAll(Result result) {
         Set<String> names = result.findAll();
         names.forEach(s -> {
-            System.out.println(s + " : " + result.getResult(s));
+            System.out.println(s + Const.FORMAT_COLON + result.getResult(s));
         });
     }
 }
