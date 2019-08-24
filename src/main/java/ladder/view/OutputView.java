@@ -63,14 +63,12 @@ public class OutputView {
         System.out.println("\n실행 결과");
 
         if ("all".equals(userName)) {
-            //TODO : ladder를 넘기도록 수정
             ladder.getNames()
                     .forEach(name ->
                             System.out.println(name + " : " + result.findByPosition(ladder, name)));
             return;
         }
 
-        //TODO : ladder.findLastPosition(userName) -> ladder를 넘기도록
         System.out.println(userName + " : " + result.findByPosition(ladder, userName));
     }
 }
