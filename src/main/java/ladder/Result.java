@@ -14,8 +14,8 @@ public class Result {
         return new Result(input);
     }
 
-    public String findByPosition(int position) {
-        return results.get(position);
+    public String findByPosition(Ladder ladder, String name) {
+        return results.get(ladder.findLastPosition(name));
     }
 
     public List<String> getResults() {

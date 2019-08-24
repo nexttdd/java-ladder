@@ -13,11 +13,11 @@ public class BridgeBuilder {
         return Bridge.of(Boolean.FALSE, Boolean.FALSE);
     }
 
-    public static Bridge buildLeft() {
+    public static Bridge buildFirst() {
         return Bridge.of(Boolean.FALSE, random.nextBoolean());
     }
 
-    public static Bridge buildRight(Bridge beforeBridge) {
+    public static Bridge buildLast(Bridge beforeBridge) {
         return Bridge.of(beforeBridge.goRight(), Boolean.FALSE);
     }
 

@@ -29,18 +29,18 @@ public class Line {
     }
 
     private static List<Bridge> buildDouble() {
-        Bridge firstBridge = BridgeBuilder.buildLeft();
-        return Arrays.asList(firstBridge, BridgeBuilder.buildRight(firstBridge));
+        Bridge firstBridge = BridgeBuilder.buildFirst();
+        return Arrays.asList(firstBridge, BridgeBuilder.buildLast(firstBridge));
     }
 
     private static List<Bridge> buildMulti(int numberOfPeople) {
         List<Bridge> bridges = new ArrayList<>();
 
-        bridges.add(BridgeBuilder.buildLeft());
+        bridges.add(BridgeBuilder.buildFirst());
         for (int i = 1; i < numberOfPeople - 1; i++) {
             bridges.add(BridgeBuilder.buildMiddle(bridges.get(i - 1)));
         }
-        bridges.add(BridgeBuilder.buildRight(bridges.get(numberOfPeople - 2)));
+        bridges.add(BridgeBuilder.buildLast(bridges.get(numberOfPeople - 2)));
 
         return bridges;
     }

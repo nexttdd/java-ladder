@@ -20,12 +20,14 @@ public class ResultTest {
     @Test
     void 한명결과_확인하기() {
         //given
-        String input = "꽝,5000,꽝,3000";
+        String input = "꽝";
 
         //when
         Result result = Result.of(input);
 
+        Ladder ladder =  Ladder.of(new String[]{"name"}, 3);
+
         //then
-        assertThat(result.findByPosition(1)).isEqualTo("5000");
+        assertThat(result.findByPosition(ladder, "name")).isEqualTo("꽝");
     }
 }

@@ -1,7 +1,6 @@
 package ladder;
 
 
-import jdk.Exported;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,7 +20,7 @@ public class BridgeBuilderTest {
     @Test
     public void 가장_왼쪽다리_생셩() {
         //when
-        Bridge bridge = BridgeBuilder.buildLeft();
+        Bridge bridge = BridgeBuilder.buildFirst();
 
         //then
         assertThat(bridge.goLeft()).isFalse();
@@ -33,7 +32,7 @@ public class BridgeBuilderTest {
         Bridge beforeBridge = Bridge.of(Boolean.FALSE, Boolean.TRUE);
 
         //when
-        Bridge rightBridge = BridgeBuilder.buildRight(beforeBridge);
+        Bridge rightBridge = BridgeBuilder.buildLast(beforeBridge);
 
         //then
         assertThat(rightBridge.goLeft()).isTrue();
