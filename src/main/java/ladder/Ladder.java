@@ -1,6 +1,7 @@
 package ladder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Ladder {
@@ -48,6 +49,10 @@ public class Ladder {
 
     public String[] getNames() {
         return names;
+    }
+
+    public List<String> getNames2() {
+        return Arrays.asList(names);
     }
 
     public List<Line> getLines() {

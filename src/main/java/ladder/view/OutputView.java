@@ -16,7 +16,7 @@ public class OutputView {
     private static final String BRIDGE_LINE = "-";
 
     public static void printLadders(Ladder ladder, Result result) {
-        printNames(ladder.getNames());
+        printNames(ladder.getNames2());
         printLadder(ladder.getLines());
         printResult(result);
     }
@@ -36,6 +36,12 @@ public class OutputView {
                 .forEach(name -> {
                     sb.append(StringUtils.leftPad(name, LENGTH));
                 });
+        System.out.println(sb.toString());
+    }
+
+    private static void printNames(List<String> names) {
+        StringBuilder sb = new StringBuilder();
+        names.forEach(name -> sb.append(StringUtils.leftPad(name, LENGTH)));
         System.out.println(sb.toString());
     }
 
@@ -70,14 +76,15 @@ public class OutputView {
         System.out.println("\n실행 결과");
 
         if ("all".equals(userName)) {
-            String[] names = ladder.getNames();
-            Arrays.stream(names)
-                    .forEach(name -> {
-                        System.out.println(name + " : " + result.findByPosition(ladder.findLastPosition(name)));
-                    });
+            //TODO : ladder를 넘기도록 수정
+            ladder.getNames2()
+                    .forEach(name ->
+                            System.out.println(name + " : " + result.findByPosition(ladder.findLastPosition(name)))
+                    );
             return;
         }
 
+        //TODO : ladder.findLastPosition(userName) -> ladder를 넘기도록
         System.out.println(userName + " : " + result.findByPosition(ladder.findLastPosition(userName)));
     }
 }

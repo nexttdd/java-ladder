@@ -13,11 +13,10 @@ public class ConsoleMain {
 
         OutputView.printLadders(ladder, result);
 
-
         String userName = "";
-        do {
+        while (!"all".equals(userName)) {
             userName = InputView.inputCheckResult();
             OutputView.printReward(userName, ladder, result);
-        } while (!"all".equals(userName));
+        }
     }
 }

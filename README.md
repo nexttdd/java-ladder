@@ -38,3 +38,7 @@
 - 최종 index 구하는 기능 추가
 > 처음 시작 index를 받아서 사다리 탐색, 최종 position 결과 출력
 > Ladder에 시작index를 알려주면, 결과index를 반환하도록!!
+
+
+
+- 사다리 left, right 가 처음과 끝인줄 설명을 들어야 알겠어. 명확하지 않음
