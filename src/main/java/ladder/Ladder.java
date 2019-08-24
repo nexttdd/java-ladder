@@ -3,6 +3,7 @@ package ladder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Ladder {
     private static int MIN_NAME_COUNT= 1;
@@ -10,6 +11,10 @@ public class Ladder {
     private List<Line> lines;
 
     private Ladder(String[] names, List<Line> lines) {
+        if(Objects.isNull(names)){
+            throw new NullPointerException();
+        }
+
         if(names.length < MIN_NAME_COUNT) {
             throw new IllegalArgumentException();
         }
