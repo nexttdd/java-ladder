@@ -74,10 +74,10 @@ public class LadderTest {
 
     @Test
     void 사다리난이도가_하_인경우() {
+        //given
         String level = "하";
 
-        Ladder ladder = Ladder.of(names, level);
-
-        assertThat(ladder.getHeight()).isEquals(5);
+        //then
+        assertThat(Ladder.checkLevel(level)).isEqualTo(5);
     }
 }
