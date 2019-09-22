@@ -1,5 +1,6 @@
 package ladder;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -15,5 +16,11 @@ class LadderGameLevelTest {
 
         //then
         assertThat(actualHeight).isEqualTo(expectedHeight);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"하,4,false", "중,6,true"})
+    void 난이도_테스트(String level, int randomNumber, boolean result) {
+        assertThat(LadderGameLevel.getLineRange(level, randomNumber)).isEqualTo(result);
     }
 }

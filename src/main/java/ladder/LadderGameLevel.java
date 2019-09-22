@@ -32,4 +32,14 @@ public enum LadderGameLevel {
         }
         throw new IllegalArgumentException();
     }
+
+    public static boolean getLineRange(String level, int randomNumber) {
+        for (LadderGameLevel item : LadderGameLevel.values()) {
+            if (item.level.equals(level)) {
+                return randomNumber < item.range;
+            }
+        }
+
+        throw new IllegalArgumentException();
+    }
 }
