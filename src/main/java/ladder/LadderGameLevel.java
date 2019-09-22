@@ -9,16 +9,16 @@ public enum LadderGameLevel {
     NORMAL("중", 10, 7),
     EASY("하", 5, 4);
 
+    public static final Map<String, Integer> levelHeights;
+
+    static {
+        levelHeights = Stream.of(LadderGameLevel.values())
+                .collect(Collectors.toMap(o -> o.level, o -> o.height));
+    }
+
     private String level;
     private Integer height;
     private Integer range;
-
-    public static final Map<String, Integer> map;
-
-    static {
-        map = Stream.of(LadderGameLevel.values())
-                .collect(Collectors.toMap(o -> o.level, o -> o.height));
-    }
 
     LadderGameLevel(String level, Integer height, Integer range) {
         this.level = level;
@@ -27,8 +27,8 @@ public enum LadderGameLevel {
     }
 
     public static int getHeight(String ladderGameLevel) {
-        if(map.containsKey(ladderGameLevel)){
-            return map.get(ladderGameLevel);
+        if (levelHeights.containsKey(ladderGameLevel)) {
+            return levelHeights.get(ladderGameLevel);
         }
         throw new IllegalArgumentException();
     }

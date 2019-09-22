@@ -70,8 +70,6 @@ public class OutputView {
 
     private static void printAll(Result result) {
         Set<String> names = result.findAll();
-        names.forEach(s -> {
-            System.out.println(s + Const.FORMAT_COLON + result.getResult(s));
-        });
+        names.forEach(s -> System.out.println(s + Const.FORMAT_COLON + result.getResult(s)));
     }
 }

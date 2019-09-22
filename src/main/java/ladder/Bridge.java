@@ -10,14 +10,14 @@ public class Bridge {
         this.right = right;
     }
 
+    public static Bridge of(boolean goLeft, boolean goRight) {
+        return new Bridge(goLeft, goRight);
+    }
+
     private void validate(boolean left, boolean right) {
         if (left && right) {
             throw new IllegalArgumentException("양쪽 방향으로 이동할 수 없습니다.");
         }
-    }
-
-    public static Bridge of(boolean goLeft, boolean goRight) {
-        return new Bridge(goLeft, goRight);
     }
 
     public boolean goLeft() {
