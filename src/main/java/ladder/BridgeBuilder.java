@@ -28,4 +28,10 @@ public class BridgeBuilder {
     private static boolean determineGoRight(Bridge beforeBridge) {
         return beforeBridge.goRight() ? Boolean.FALSE : random.nextBoolean();
     }
+
+    public static boolean randomForLadderLevel(String level){
+        int randomNumber = (new Random().nextInt(9) +1);
+        if(LadderGameLevel.getLineRange(randomNumber))
+        return
+    }
 }

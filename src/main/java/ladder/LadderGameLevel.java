@@ -5,12 +5,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public enum LadderGameLevel {
-    HARD("상", 20),
-    NORMAL("중", 10),
-    EASY("하", 5);
+    HARD("상", 20, 10),
+    NORMAL("중", 10, 7),
+    EASY("하", 5, 4);
 
     private String level;
     private Integer height;
+    private Integer range;
 
     public static final Map<String, Integer> map;
 
@@ -19,12 +20,16 @@ public enum LadderGameLevel {
                 .collect(Collectors.toMap(o -> o.level, o -> o.height));
     }
 
-    LadderGameLevel(String level, Integer height) {
+    LadderGameLevel(String level, Integer height, Integer range) {
         this.level = level;
         this.height = height;
+        this.range = range;
     }
 
     public static int getHeight(String ladderGameLevel) {
-        return map.get(ladderGameLevel);
+        if(map.containsKey(ladderGameLevel)){
+            return map.get(ladderGameLevel);
+        }
+        throw new IllegalArgumentException();
     }
 }

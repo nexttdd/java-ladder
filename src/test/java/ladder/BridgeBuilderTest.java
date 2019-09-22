@@ -51,4 +51,8 @@ public class BridgeBuilderTest {
         assertThat(currentBridge.goLeft()).isTrue();
         assertThat(currentBridge.goRight()).isFalse();
     }
+
+    @Test
+    void 난이도에따른_오른쪽다리_생성_하_1에서_3범위만_오른쪽으로_허용() {
+    }
 }
