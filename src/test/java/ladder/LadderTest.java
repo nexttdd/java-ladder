@@ -71,4 +71,13 @@ public class LadderTest {
         name = new String[]{inputName};
         assertThrows(IllegalArgumentException.class, () -> Ladder.of(name, height));
     }
+
+    @Test
+    void 사다리난이도가_하_인경우() {
+        String level = "하";
+
+        Ladder ladder = Ladder.of(names, level);
+
+        assertThat(ladder.getHeight()).isEquals(5);
+    }
 }

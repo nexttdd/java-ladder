@@ -26,6 +26,12 @@ public class Ladder {
         return new Ladder(names, lines);
     }
 
+    //TODO : names, ladderGameLevel
+    public static Ladder of(String[] names, String ladderGameLevel) {
+        return null;
+    }
+
+
     private void validation(String[] names, List<Line> lines) {
         if (Objects.isNull(names)) {
             throw new NullPointerException();
@@ -78,5 +84,9 @@ public class Ladder {
         }
 
         return position;
+    }
+
+    public int getHeight() {
+        return 0;
     }
 }
