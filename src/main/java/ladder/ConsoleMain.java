@@ -9,7 +9,8 @@ public class ConsoleMain {
     public static void main(String[] args) {
         String[] names = InputView.inputNames();
         List<String> results = InputView.inputResult();
-        int ladderHeight = InputView.inputLadderHeight();
+        String ladderGameLevel = InputView.inputLadderGameLevel();
+        int ladderHeight = LadderGameLevel.getHeight(ladderGameLevel);
 
         Ladder ladder = Ladder.of(names, ladderHeight);
         Result result = ladder.start(results);

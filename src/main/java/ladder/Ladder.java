@@ -26,28 +26,6 @@ public class Ladder {
         return new Ladder(names, lines);
     }
 
-    //TODO : names, ladderGameLevel
-    public static Ladder of(String[] names, String ladderGameLevel) {
-        List<Line> lines = new ArrayList<>();
-
-        int height = checkLevel(ladderGameLevel);
-        for (int i = 0; i < height; i++) {
-            lines.add(Line.of(names.length));
-        }
-
-        return new Ladder(names, lines);
-    }
-
-    public static int checkLevel(String ladderGameLevel) {
-        if("하".equals(ladderGameLevel))
-            return 5;
-        if("중".equals(ladderGameLevel))
-            return 10;
-        if("상".equals(ladderGameLevel))
-            return 20;
-        throw new IllegalArgumentException();
-    }
-
     private void validation(String[] names, List<Line> lines) {
         if (Objects.isNull(names)) {
             throw new NullPointerException();
