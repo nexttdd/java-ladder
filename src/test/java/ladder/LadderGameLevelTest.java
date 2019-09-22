@@ -23,4 +23,11 @@ class LadderGameLevelTest {
     void 난이도_테스트(String level, int randomNumber, boolean result) {
         assertThat(LadderGameLevel.getLineRange(level, randomNumber)).isEqualTo(result);
     }
+
+    @ParameterizedTest
+    @CsvSource({"하"})
+    void 난이도_테스트_최근상태값(String ladderGameLevel) {
+        //then
+        assertThat(ConsoleMain.ladderGameLevel).isEqualTo(ladderGameLevel);
+    }
 }

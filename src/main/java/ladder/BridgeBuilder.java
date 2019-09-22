@@ -26,11 +26,7 @@ public class BridgeBuilder {
     }
 
     private static boolean determineGoRight(Bridge beforeBridge) {
-        return beforeBridge.goRight() ? Boolean.FALSE : random.nextBoolean();
-    }
-
-    private static boolean determineGoRight2(Bridge beforeBridge, String level) {
-        return beforeBridge.goRight() ? Boolean.FALSE : randomForLadderLevel(level);
+        return beforeBridge.goRight() ? Boolean.FALSE : randomForLadderLevel(ConsoleMain.ladderGameLevel);
     }
 
 

@@ -6,10 +6,11 @@ import ladder.view.OutputView;
 import java.util.List;
 
 public class ConsoleMain {
+    public static String ladderGameLevel = "하";
     public static void main(String[] args) {
         String[] names = InputView.inputNames();
         List<String> results = InputView.inputResult();
-        String ladderGameLevel = InputView.inputLadderGameLevel();
+        ladderGameLevel = InputView.inputLadderGameLevel();
         int ladderHeight = LadderGameLevel.getHeight(ladderGameLevel);
 
         Ladder ladder = Ladder.of(names, ladderHeight);
