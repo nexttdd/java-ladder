@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Line {
-    public static final int TWO_PEOPLE = 2;
     private final List<Bridge> bridges;
 
     private Line(List<Bridge> bridges) {
@@ -14,11 +13,11 @@ public class Line {
     }
 
     public static Line of(int numberOfPeople) {
-        if (numberOfPeople < TWO_PEOPLE) {
+        if (numberOfPeople < Const.TWO_PEOPLE) {
             return new Line(buildOne());
         }
 
-        if (numberOfPeople == TWO_PEOPLE) {
+        if (numberOfPeople == Const.TWO_PEOPLE) {
             return new Line(buildDouble());
         }
 
@@ -41,7 +40,7 @@ public class Line {
         for (int i = 1; i < numberOfPeople - 1; i++) {
             bridges.add(BridgeBuilder.buildMiddle(bridges.get(i - 1)));
         }
-        bridges.add(BridgeBuilder.buildLast(bridges.get(numberOfPeople - TWO_PEOPLE)));
+        bridges.add(BridgeBuilder.buildLast(bridges.get(numberOfPeople - Const.TWO_PEOPLE)));
 
         return bridges;
     }

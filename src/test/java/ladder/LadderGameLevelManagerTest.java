@@ -1,24 +1,29 @@
 package ladder;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LadderGameLevelManagerTest {
-
-    @Test
-    void 난이도에따른_높이구하기() {
-        String level = "하";
+    @ParameterizedTest
+    @CsvSource({"상,20", "중,10", "하,5"})
+    void 난이도에따른_높이구하기(String level, int height) {
+        //when
         LadderGameLevelManager.init(level);
 
-        assertThat(LadderGameLevelManager.height).isEqualTo(5);
+        //then
+        assertThat(LadderGameLevelManager.height).isEqualTo(height);
     }
 
-    @Test
-    void 난이도_구하기() {
-        String level = "중";
+    @ParameterizedTest
+    @CsvSource({"상", "중", "하"})
+    void 난이도_구하기(String level) {
+        //given
         LadderGameLevelManager.init(level);
 
+        //then
         assertThat(LadderGameLevelManager.level).isEqualTo(level);
     }
 }

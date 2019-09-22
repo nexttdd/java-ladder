@@ -4,8 +4,6 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Ladder {
-    private static int MIN_NAME_COUNT = 1;
-    private static int MAX_NAME_LENGTH = 5;
     private String[] names;
     private List<Line> lines;
 
@@ -31,7 +29,7 @@ public class Ladder {
             throw new NullPointerException();
         }
 
-        if (names.length < MIN_NAME_COUNT) {
+        if (names.length < Const.MIN_NAME_COUNT) {
             throw new IllegalArgumentException();
         }
 
@@ -47,7 +45,7 @@ public class Ladder {
             throw new IllegalArgumentException();
         }
 
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (name.length() > Const.MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }

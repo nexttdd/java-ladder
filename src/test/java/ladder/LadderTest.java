@@ -22,20 +22,25 @@ public class LadderTest {
 
     @Test
     void 한명_높이1_사다리_만들기() {
+        //when
         Ladder ladder = Ladder.of(names, height);
 
+        //then
         assertThat(ladder.getLines().size()).isEqualTo(height);
     }
 
     @Test
     void 세명_높이5_사다리_만들기() {
+        //when
         Ladder ladder = Ladder.of(names, height);
 
+        //then
         assertThat(ladder.getLines().size()).isEqualTo(height);
     }
 
     @Test
     void 결과확인하기() {
+        //given
         Ladder ladder = Ladder.of(name, height);
         int startPosition = 0;
 
@@ -68,7 +73,10 @@ public class LadderTest {
     @ParameterizedTest
     @ValueSource(strings = {"123456", ""})
     void inputIllegalName(String inputName) {
+        //given
         name = new String[]{inputName};
+
+        //then
         assertThrows(IllegalArgumentException.class, () -> Ladder.of(name, height));
     }
 }
