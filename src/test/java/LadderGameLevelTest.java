@@ -1,43 +1,17 @@
 import domain.LadderGameLevel;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderGameLevelTest {
-
-    @Test
-    public void getHeight() {
-        //given
-        String level = "상";
-
+    @ParameterizedTest
+    @CsvSource({"상,20", "중,10", "하,5"})
+    public void 난이도_입력받기(String inputLevel, int resultHeight) {
         //when
-        int height = LadderGameLevel.of(level).getHeight();
+        int height = LadderGameLevel.of(inputLevel).getHeight();
 
         //then
-        assertThat(height).isEqualTo(20);
-    }
-
-    @Test
-    public void getHeight2() {
-        //given
-        String level = "중";
-
-        //when
-        int height = LadderGameLevel.of(level).getHeight();
-
-        //then
-        assertThat(height).isEqualTo(10);
-    }
-
-    @Test
-    public void getHeight3() {
-        //given
-        String level = "하";
-
-        //when
-        int height = LadderGameLevel.of(level).getHeight();
-
-        //then
-        assertThat(height).isEqualTo(5);
+        assertThat(height).isEqualTo(resultHeight);
     }
 }
