@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class CommonUtils {
+public class CommonUtils {//push test
     public static String[] split(String value) {
         return value.split(Consts.NAME_SEPARATOR);
     }
