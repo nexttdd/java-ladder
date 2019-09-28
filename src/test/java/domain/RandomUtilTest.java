@@ -11,7 +11,7 @@ class RandomUtilTest {
             , "하,4,false", "중,7,false", "상,10,false"
     })
     void 난이도에_따른_다리생성_확인(String level, int randomNumber, boolean isResult) {
-        boolean result = RandomUtil.determineMakeLine(level, randomNumber);
+        boolean result = RandomUtil.determineMakeLine(LadderGameLevel.of(level), randomNumber);
 
         assertThat(result).isEqualTo(isResult);
     }

@@ -9,11 +9,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ResultView {
-
     private static final String HORIZONTAL_LINE = "-----";
     private static final String HORIZONTAL_EMPTY = "     ";
     private static final String VERTICAL_LINE = "|";
-
 
     public static void printResult(LadderGame ladderGame, List<Line> lines) {
         System.out.println("사다리 결과\n");

@@ -15,7 +15,7 @@ public class LadderGame {
     public List<Line> start(LadderGameLevel ladderGameLevel) {
         List<Line> lines = new ArrayList<>();
 
-        for(int i=0; i<ladderGameLevel.getHeight(); i++) {
+        for (int i = 0; i < ladderGameLevel.getHeight(); i++) {
             lines.add(new Line(players.countOfPlayers()));
         }
 

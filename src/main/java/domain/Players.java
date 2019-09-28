@@ -30,7 +30,7 @@ public class Players {
         return players.size();
     }
 
-    public Player getPlayer(int inedex) {
-        return players.get(inedex);
+    public Player getPlayer(int index) {
+        return players.get(index);
     }
 }

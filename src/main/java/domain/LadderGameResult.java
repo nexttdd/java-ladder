@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 public class LadderGameResult {
-
     private static final String ALL_PLAYER = "all";
     private static final String RESULT_DELIMITER = " : ";
     private Map<Player, String> totalResult = new HashMap<>();
@@ -29,7 +28,6 @@ public class LadderGameResult {
             }
             if (point.isRight()) {
                 result++;
-                continue;
             }
         }
         return result;
