@@ -12,10 +12,10 @@ public class LadderGame {
         this.results = results;
     }
 
-    public List<Line> start(int ladderHeight) {
+    public List<Line> start(LadderGameLevel ladderGameLevel) {
         List<Line> lines = new ArrayList<>();
 
-        for(int i=0; i<ladderHeight; i++) {
+        for(int i=0; i<ladderGameLevel.getHeight(); i++) {
             lines.add(new Line(players.countOfPlayers()));
         }
 

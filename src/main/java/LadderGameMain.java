@@ -1,4 +1,5 @@
 import domain.LadderGame;
+import domain.LadderGameLevel;
 import domain.LadderGameResult;
 import domain.Line;
 import view.InputView;
@@ -9,9 +10,8 @@ import java.util.List;
 public class LadderGameMain {
     public static void main(String[] args) {
         LadderGame ladderGame = new LadderGame(InputView.getPlayerNames(), InputView.getPlayResults());
-        String laddeerGameLevel = InputView.getLadderGameLevel();
-
-        List<Line> results = ladderGame.start(InputView.getLadderHeight());
+        LadderGameLevel laddeerGameLevel = LadderGameLevel.of(InputView.getLadderGameLevel());
+        List<Line> results = ladderGame.start(laddeerGameLevel);
         ResultView.printResult(ladderGame, results);
         LadderGameResult ladderGameResult = new LadderGameResult(ladderGame, results);
         String whoResult1 = InputView.getPeopleToSeeResult();
