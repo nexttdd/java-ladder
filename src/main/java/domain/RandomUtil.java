@@ -12,24 +12,25 @@ public class RandomUtil {
             return Boolean.FALSE;
         }
 
-        return test();
+        String level = "하";
+        return determineMakeLine(level, random());
     }
 
     public static int random() {
         return new Random().nextInt(10) + 1;
     }
 
-    public static boolean test(){
+    public static boolean determineMakeLine(String level, int randomNumber){
         //1~9 하:1~3 중: 1~6, 상:1~9
-        if("하".equals("하")&& random() < 4){
+        if("하".equals(level)&& randomNumber < 4){
             return true;
         }
 
-        if("중".equals() && random() < 7){
+        if("중".equals(level) && randomNumber < 7){
             return true;
         }
 
-        if("상".equals() && random() < 9){
+        if("상".equals(level) && randomNumber < 10){
             return true;
         }
 
