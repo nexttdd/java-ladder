@@ -9,6 +9,8 @@ import java.util.List;
 public class LadderGameMain {
     public static void main(String[] args) {
         LadderGame ladderGame = new LadderGame(InputView.getPlayerNames(), InputView.getPlayResults());
+        String laddeerGameLevel = InputView.getLadderGameLevel();
+
         List<Line> results = ladderGame.start(InputView.getLadderHeight());
         ResultView.printResult(ladderGame, results);
         LadderGameResult ladderGameResult = new LadderGameResult(ladderGame, results);
