@@ -22,7 +22,11 @@ public enum LadderGameLevel {
             return LadderGameLevel.NORMAL;
         }
 
-        return LadderGameLevel.HARD;
+        if(LadderGameLevel.HARD.level.equals(levelName)) {
+            return LadderGameLevel.HARD;
+        }
+
+        throw new IllegalArgumentException();
     }
 
     public int getHeight() {
