@@ -7,3 +7,9 @@
 
 ## 온라인 코드 리뷰 과정
 * [텍스트와 이미지로 살펴보는 온라인 코드 리뷰 과정](https://github.com/nextstep-step/nextstep-docs/tree/master/codereview)
+
+
+## 구현 리스트
+* [ ] 난이도 입력받기
+* [ ] 난이도에 따른 높이 정하기
+* [ ] 난이도 따른 라인 확률 적용하기
