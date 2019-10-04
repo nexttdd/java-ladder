@@ -1,12 +1,10 @@
 package ladder.view;
 
-import ladder.Bridge;
-import ladder.Ladder;
-import ladder.Line;
+import ladder.*;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class OutputView {
     private static final int LENGTH = 6;
@@ -14,31 +12,35 @@ public class OutputView {
     private static final String VERTICAL_LINE = "|";
     private static final String BRIDGE_LINE = "-";
 
-    public static void printResult(Ladder ladder) {
+    public static void printLadders(Ladder ladder, List<String> result) {
         printNames(ladder.getNames());
         printLadder(ladder.getLines());
+        printResult(result);
     }
 
-    private static void printNames(String[] names) {
+    private static void printResult(List<String> result) {
         StringBuilder sb = new StringBuilder();
-        Arrays.stream(names)
-                .forEach(name -> {
-                    sb.append(StringUtils.leftPad(name, LENGTH));
-                });
+        result
+                .forEach(data -> sb.append(StringUtils.leftPad(data, LENGTH)));
+
+        System.out.println(sb.toString());
+    }
+
+    private static void printNames(List<String> names) {
+        StringBuilder sb = new StringBuilder();
+        names.forEach(name -> sb.append(StringUtils.leftPad(name, LENGTH)));
+
         System.out.println(sb.toString());
     }
 
     private static void printLadder(List<Line> lines) {
-        lines.forEach(line -> {
-            printLine(line.getBridges());
-        });
+        lines.forEach(line -> printLine(line.getBridges()));
     }
 
     private static void printLine(List<Bridge> bridges) {
         StringBuilder sb = new StringBuilder();
-        bridges.forEach(bridge -> {
-            printBridge(sb, bridge);
-        });
+        bridges.forEach(bridge -> printBridge(sb, bridge));
+
         System.out.println(sb.toString());
     }
 
@@ -53,5 +55,23 @@ public class OutputView {
         }
 
         sb.append(StringUtils.leftPad(VERTICAL_LINE, LENGTH, padCharacter));
+    }
+
+    public static void printReward(String userName, Result result) {
+        System.out.println("\n실행 결과");
+
+        if (Const.FORMAT_ALL.equals(userName)) {
+            printAll(result);
+            return;
+        }
+
+        System.out.println(userName + Const.FORMAT_COLON + result.getResult(userName));
+    }
+
+    private static void printAll(Result result) {
+        Set<String> names = result.findAll();
+        names.forEach(s -> {
+            System.out.println(s + Const.FORMAT_COLON + result.getResult(s));
+        });
     }
 }
