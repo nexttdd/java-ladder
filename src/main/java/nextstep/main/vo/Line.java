@@ -120,7 +120,6 @@ public class Line {
 
     public boolean isGenerateLine(String level, int randomValue) {
 //        int randomValue = randomWithin10();
-        String level = "하";
         if("하".equals(level) && randomValue < 4){
             return true;
         }

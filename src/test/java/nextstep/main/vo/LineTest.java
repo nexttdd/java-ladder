@@ -1,6 +1,8 @@
 package nextstep.main.vo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,13 +25,13 @@ public class LineTest {
         assertThat(result).isEqualTo(false);
     }
 
-    @Test
-    public void 난이도에_따른_라인_만들기() {
-        String level = "하";
-        int radom = 3;
+    @ParameterizedTest
+    @CsvSource({"하,3,true", "하,4,false"})
+    public void 난이도에_따른_라인_만들기(String level, int number, boolean result) {
+        //when
+       boolean isGenerateLine =  new Line().isGenerateLine(level, number);
 
-       boolean isGenerateLine =  new Line().isGenerateLine();
-
-       assertThat(isGenerateLine).isTrue();
+       //then
+       assertThat(isGenerateLine).isEqualTo(result);
     }
 }
