@@ -25,7 +25,11 @@ public class LineTest {
 
     @Test
     public void 난이도에_따른_라인_만들기() {
-        String level = "상";
+        String level = "하";
+        int radom = 3;
 
+       boolean isGenerateLine =  new Line().isGenerateLine();
+
+       assertThat(isGenerateLine).isTrue();
     }
 }

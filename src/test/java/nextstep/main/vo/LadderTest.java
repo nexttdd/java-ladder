@@ -12,7 +12,7 @@ public class LadderTest {
         Ladder ladder = new Ladder();
 
         //when
-        int result = ladder.generateLadder(1, 4);
+        int result = ladder.generateLadder("하", 4);
 
         //then
         assertThat(result).isEqualTo(1);
@@ -24,7 +24,7 @@ public class LadderTest {
         Ladder ladder = new Ladder();
 
         //when
-        ladder.generateLadder(1, 2);
+        ladder.generateLadder("하", 2);
         ResultView.drawLadder(ladder);
 
         int result =  ladder.getResult(0);

@@ -16,22 +16,25 @@ public class Line {
 
     private List<Boolean> points;
 
-        Line(int countOfPerson) {
+    public Line() {
+    }
+
+    public Line(int countOfPerson) {
         generateLine(countOfPerson);
     }
 
     public Line(int playerCount, String ladderLevel) {
-            generateLine(playerCount, ladderLevel);
+            generateLine(playerCount);
     }
 
-    private void generateLine(int playerCount, String ladderLevel) {
-        points = new ArrayList<>();
-
-        IntStream.range(0, numberOfPoints(playerCount))
-                .forEach(i -> points.add(generateCurrentPoint(i)));
-
-        return points.size();
-    }
+//    private void generateLine(int playerCount, String ladderLevel) {
+//        points = new ArrayList<>();
+//
+//        IntStream.range(0, numberOfPoints(playerCount))
+//                .forEach(i -> points.add(generateCurrentPoint(i)));
+//
+//        return points.size();
+//    }
 
     private int generateLine(int countOfPerson) {
         points = new ArrayList<>();
@@ -113,5 +116,25 @@ public class Line {
         }
 
         return currentPosition;
+    }
+
+    public boolean isGenerateLine(String level, int randomValue) {
+//        int randomValue = randomWithin10();
+        String level = "하";
+        if("하".equals(level) && randomValue < 4){
+            return true;
+        }
+        if("중".equals(level) && randomValue < 7){
+            return true;
+        }
+        if("상".equals(level)&& randomValue < 10){
+            return true;
+        }
+
+        return false;
+    }
+
+    private int randomWithin10(){
+       return new Random(10).nextInt()+1;
     }
 }
