@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 public class Ladder {
     private List<Line> lines;
     private static final Map<String, Integer> heights;
+
     static {
         heights = new HashMap<>();
         heights.put("상", 20);
@@ -27,7 +28,7 @@ public class Ladder {
         return this.lines.size();
     }
 
-    public int getLadderHeight(LadderLevel ladderLevel){
+    public int getLadderHeight(LadderLevel ladderLevel) {
         return Optional.ofNullable(heights.get(ladderLevel.geLevel()))
                 .orElseThrow(IllegalArgumentException::new);
     }

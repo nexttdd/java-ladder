@@ -19,9 +19,8 @@ public class Line {
     public Line() {
     }
 
-
     public Line(int playerCount, LadderLevel ladderLevel) {
-            generateLine(playerCount, ladderLevel);
+        generateLine(playerCount, ladderLevel);
     }
 
     private void generateLine(int playerCount, LadderLevel ladderLevel) {
@@ -36,7 +35,7 @@ public class Line {
     }
 
     private boolean generateCurrentPoint(int newPosition, LadderLevel ladderLevel) {
-        boolean point = ladderLevel.isLimit(randomWithin10());
+        boolean point = ladderLevel.isLowerThenLimit(randomWithin10());
 
         if (isOverLapped(newPosition, point)) {
             point = !point;
@@ -95,10 +94,10 @@ public class Line {
     }
 
     public boolean isGenerateLine(LadderLevel level, int randomValue) {
-        return level.isLimit(randomValue);
+        return level.isLowerThenLimit(randomValue);
     }
 
-    private int randomWithin10(){
-       return new Random(10).nextInt()+1;
+    private int randomWithin10() {
+        return new Random().nextInt(10) + 1;
     }
 }

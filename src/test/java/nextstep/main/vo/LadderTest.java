@@ -15,7 +15,7 @@ public class LadderTest {
         ladder.generateLadder(LadderLevel.EASY, 2);
         ResultView.drawLadder(ladder);
 
-        int result =  ladder.getResult(0);
+        int result = ladder.getResult(0);
 
         //then
         assertThat(result).isEqualTo(0);

@@ -30,9 +30,9 @@ public class LineTest {
     public void 난이도에_따른_라인_만들기(String level, int number, boolean result) {
         LadderLevel ladderLevel = LadderLevel.of(level);
         //when
-       boolean isGenerateLine =  new Line().isGenerateLine(ladderLevel, number);
+        boolean isGenerateLine = new Line().isGenerateLine(ladderLevel, number);
 
-       //then
-       assertThat(isGenerateLine).isEqualTo(result);
+        //then
+        assertThat(isGenerateLine).isEqualTo(result);
     }
 }

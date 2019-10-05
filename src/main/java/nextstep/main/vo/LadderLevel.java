@@ -1,7 +1,5 @@
 package nextstep.main.vo;
 
-import java.text.Normalizer;
-
 public enum LadderLevel {
     EASY("하", 4),
     NORMAL("중", 7),
@@ -16,15 +14,15 @@ public enum LadderLevel {
     }
 
     public static LadderLevel of(String levelName) {
-        if(levelName.equals(LadderLevel.EASY.level)) {
+        if (levelName.equals(LadderLevel.EASY.level)) {
             return LadderLevel.EASY;
         }
 
-        if(levelName.equals(LadderLevel.NORMAL.level)) {
+        if (levelName.equals(LadderLevel.NORMAL.level)) {
             return LadderLevel.NORMAL;
         }
 
-        if(levelName.equals(LadderLevel.HARD.level)) {
+        if (levelName.equals(LadderLevel.HARD.level)) {
             return LadderLevel.HARD;
         }
 
@@ -35,7 +33,7 @@ public enum LadderLevel {
         return this.limit;
     }
 
-    public boolean isLimit(int number) {
+    public boolean isLowerThenLimit(int number) {
         return this.limit > number;
     }
 
