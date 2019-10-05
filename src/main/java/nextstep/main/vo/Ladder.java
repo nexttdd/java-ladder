@@ -1,11 +1,17 @@
 package nextstep.main.vo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Ladder {
     private List<Line> lines;
+    private static final Map<String, Integer> heights;
+    static {
+        heights = new HashMap<>();
+        heights.put("상", 20);
+        heights.put("중", 10);
+        heights.put("하", 5);
+    }
 
     public Ladder() {
         this.lines = new ArrayList<>();
@@ -29,17 +35,9 @@ public class Ladder {
         return this.lines.size();
     }
 
-    private int getLadderHeight(String ladderLevel){
-        if("상".equals(ladderLevel)){
-            return 20;
-        }
-        if("중".equals(ladderLevel)){
-            return 10;
-        }
-        if("하".equals(ladderLevel)){
-            return 5;
-        }
-       throw  new IllegalArgumentException();
+    public int getLadderHeight(String ladderLevel){
+        return Optional.of(heights.get(ladderLevel))
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     public List<Line> getLines() {

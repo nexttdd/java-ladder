@@ -2,7 +2,6 @@ package nextstep.main.vo;
 
 import nextstep.main.view.ResultView;
 import org.junit.Test;
-import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,8 +39,18 @@ public class LadderTest {
         String level = "상";
 
         //when
-        
+        int height = new Ladder().getLadderHeight(level);
 
         //then
+        assertThat(height).isEqualTo(20);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void 난이도에_따른_사다리_갯수_정하기_예외처리() {
+        //given
+        String level = "1234";
+
+        //when
+        int height = new Ladder().getLadderHeight(level);
     }
 }
