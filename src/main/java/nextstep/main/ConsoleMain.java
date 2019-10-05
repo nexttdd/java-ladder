@@ -5,6 +5,7 @@ import nextstep.main.view.InputView;
 import nextstep.main.view.ResultView;
 import nextstep.main.vo.Ladder;
 import nextstep.main.vo.LadderGameMapper;
+import nextstep.main.vo.LadderLevel;
 import nextstep.main.vo.Persons;
 
 import java.util.List;
@@ -16,12 +17,10 @@ public class ConsoleMain {
         String playersName = InputView.playerNames();
         String playerResults = InputView.ladderResultPreDiction();
 
-        int ladderHeight = InputView.maxLadderHeight();
-
         Persons persons = Persons.generate(playersName);
         List<String> results = CommonUtils.generates(playerResults);
 
-        String ladderLevel = InputView.setLadderLevel();
+        LadderLevel ladderLevel = LadderLevel.of(InputView.setLadderLevel());
 
         Ladder ladder = new Ladder();
         ladder.generateLadder(ladderLevel, persons.getPersonCount());

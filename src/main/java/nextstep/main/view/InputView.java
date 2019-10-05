@@ -15,12 +15,6 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static int maxLadderHeight() {
-        System.out.println("최대 사다리 높이는 몇 개인가요?");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
-    }
-
     public static String personResult() {
         System.out.println("결과를 보고 싶은 사람은?");
         Scanner scanner = new Scanner(System.in);

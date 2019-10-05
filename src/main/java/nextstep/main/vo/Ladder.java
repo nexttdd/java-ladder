@@ -17,7 +17,7 @@ public class Ladder {
         this.lines = new ArrayList<>();
     }
 
-    public int generateLadder(String ladderLevel, int playerCount) {
+    public int generateLadder(LadderLevel ladderLevel, int playerCount) {
         int ladderHeight = getLadderHeight(ladderLevel);
 
         IntStream.range(0, ladderHeight)
@@ -27,8 +27,8 @@ public class Ladder {
         return this.lines.size();
     }
 
-    public int getLadderHeight(String ladderLevel){
-        return Optional.ofNullable(heights.get(ladderLevel))
+    public int getLadderHeight(LadderLevel ladderLevel){
+        return Optional.ofNullable(heights.get(ladderLevel.geLevel()))
                 .orElseThrow(IllegalArgumentException::new);
     }
 

@@ -38,4 +38,8 @@ public enum LadderLevel {
     public boolean isLimit(int number) {
         return this.limit > number;
     }
+
+    public String geLevel() {
+        return this.level;
+    }
 }

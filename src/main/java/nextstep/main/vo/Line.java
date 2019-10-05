@@ -19,48 +19,24 @@ public class Line {
     public Line() {
     }
 
-    public Line(int countOfPerson) {
-        generateLine(countOfPerson);
-    }
 
     public Line(int playerCount, LadderLevel ladderLevel) {
-            generateLine(playerCount);
+            generateLine(playerCount, ladderLevel);
     }
 
-//    private void generateLine(int playerCount, String ladderLevel) {
-//        points = new ArrayList<>();
-//
-//        IntStream.range(0, numberOfPoints(playerCount))
-//                .forEach(i -> points.add(generateCurrentPoint(i)));
-//
-//        return points.size();
-//    }
-
-    private int generateLine(int countOfPerson) {
+    private void generateLine(int playerCount, LadderLevel ladderLevel) {
         points = new ArrayList<>();
 
-        IntStream.range(0, numberOfPoints(countOfPerson))
-                .forEach(i -> points.add(generateCurrentPoint(i)));
-
-        return points.size();
+        IntStream.range(0, numberOfPoints(playerCount))
+                .forEach(i -> points.add(generateCurrentPoint(i, ladderLevel)));
     }
 
     private static int numberOfPoints(int countOfPerson) {
         return countOfPerson - 1;
     }
 
-    private boolean generateCurrentPoint(int newPosition) {
-        boolean point = new Random().nextBoolean();
-
-        if (isOverLapped(newPosition, point)) {
-            point = !point;
-        }
-
-        return point;
-    }
-
-    private boolean generateCurrentPoint(int newPosition, String countOfPerson) {
-        boolean point = new Random().nextBoolean();
+    private boolean generateCurrentPoint(int newPosition, LadderLevel ladderLevel) {
+        boolean point = ladderLevel.isLimit(randomWithin10());
 
         if (isOverLapped(newPosition, point)) {
             point = !point;
