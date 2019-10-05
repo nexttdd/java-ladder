@@ -97,7 +97,7 @@ public class Line {
         return level.isLowerThenLimit(randomValue);
     }
 
-    private int randomWithin10() {
+    public int randomWithin10() {
         return new Random().nextInt(10) + 1;
     }
 }

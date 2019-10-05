@@ -30,9 +30,18 @@ public class LineTest {
     public void 난이도에_따른_라인_만들기(String level, int number, boolean result) {
         LadderLevel ladderLevel = LadderLevel.of(level);
         //when
-        boolean isGenerateLine = new Line().isGenerateLine(ladderLevel, number);
+       boolean isGenerateLine =  new Line().isGenerateLine(ladderLevel, number);
+
+       //then
+       assertThat(isGenerateLine).isEqualTo(result);
+    }
+
+    @Test
+    void 랜덤1에서10범위내에() {
+        //give, when
+        int random = new Line().randomWithin10();
 
         //then
-        assertThat(isGenerateLine).isEqualTo(result);
+        assertThat(random).isBetween(1,10);
     }
 }
