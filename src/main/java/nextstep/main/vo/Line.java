@@ -23,7 +23,7 @@ public class Line {
         generateLine(countOfPerson);
     }
 
-    public Line(int playerCount, String ladderLevel) {
+    public Line(int playerCount, LadderLevel ladderLevel) {
             generateLine(playerCount);
     }
 
@@ -118,19 +118,8 @@ public class Line {
         return currentPosition;
     }
 
-    public boolean isGenerateLine(String level, int randomValue) {
-//        int randomValue = randomWithin10();
-        if("하".equals(level) && randomValue < 4){
-            return true;
-        }
-        if("중".equals(level) && randomValue < 7){
-            return true;
-        }
-        if("상".equals(level)&& randomValue < 10){
-            return true;
-        }
-
-        return false;
+    public boolean isGenerateLine(LadderLevel level, int randomValue) {
+        return level.isLimit(randomValue);
     }
 
     private int randomWithin10(){
