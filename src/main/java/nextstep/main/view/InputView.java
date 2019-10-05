@@ -26,4 +26,10 @@ public class InputView {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+    public static String setLadderLevel() {
+        System.out.println("실행할 사다리의 난이도는?");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
 }

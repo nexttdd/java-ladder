@@ -21,6 +21,8 @@ public class ConsoleMain {
         Persons persons = Persons.generate(playersName);
         List<String> results = CommonUtils.generates(playerResults);
 
+        String ladderLevel = InputView.setLadderLevel();
+
         Ladder ladder = new Ladder();
         ladder.generateLadder(ladderHeight, persons.getPersonCount());
 
