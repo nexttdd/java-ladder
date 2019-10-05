@@ -22,4 +22,10 @@ public class LineTest {
         //then
         assertThat(result).isEqualTo(false);
     }
+
+    @Test
+    public void 난이도에_따른_라인_만들기() {
+        String level = "상";
+
+    }
 }

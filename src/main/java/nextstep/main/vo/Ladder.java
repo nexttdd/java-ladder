@@ -17,26 +17,18 @@ public class Ladder {
         this.lines = new ArrayList<>();
     }
 
-    public int generateLadder(int ladderHeight, int playerCount) {
-        IntStream.range(0, ladderHeight)
-                .mapToObj(item -> new Line(playerCount))
-                .forEach(line -> this.lines.add(line));
-
-        return this.lines.size();
-    }
-
     public int generateLadder(String ladderLevel, int playerCount) {
         int ladderHeight = getLadderHeight(ladderLevel);
 
         IntStream.range(0, ladderHeight)
-                .mapToObj(item -> new Line(playerCount))
+                .mapToObj(item -> new Line(playerCount, ladderLevel))
                 .forEach(line -> this.lines.add(line));
 
         return this.lines.size();
     }
 
     public int getLadderHeight(String ladderLevel){
-        return Optional.of(heights.get(ladderLevel))
+        return Optional.ofNullable(heights.get(ladderLevel))
                 .orElseThrow(IllegalArgumentException::new);
     }
 

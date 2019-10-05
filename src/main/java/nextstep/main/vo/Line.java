@@ -16,8 +16,21 @@ public class Line {
 
     private List<Boolean> points;
 
-    Line(int countOfPerson) {
+        Line(int countOfPerson) {
         generateLine(countOfPerson);
+    }
+
+    public Line(int playerCount, String ladderLevel) {
+            generateLine(playerCount, ladderLevel);
+    }
+
+    private void generateLine(int playerCount, String ladderLevel) {
+        points = new ArrayList<>();
+
+        IntStream.range(0, numberOfPoints(playerCount))
+                .forEach(i -> points.add(generateCurrentPoint(i)));
+
+        return points.size();
     }
 
     private int generateLine(int countOfPerson) {
@@ -34,6 +47,16 @@ public class Line {
     }
 
     private boolean generateCurrentPoint(int newPosition) {
+        boolean point = new Random().nextBoolean();
+
+        if (isOverLapped(newPosition, point)) {
+            point = !point;
+        }
+
+        return point;
+    }
+
+    private boolean generateCurrentPoint(int newPosition, String countOfPerson) {
         boolean point = new Random().nextBoolean();
 
         if (isOverLapped(newPosition, point)) {

@@ -24,7 +24,7 @@ public class ConsoleMain {
         String ladderLevel = InputView.setLadderLevel();
 
         Ladder ladder = new Ladder();
-        ladder.generateLadder(ladderHeight, persons.getPersonCount());
+        ladder.generateLadder(ladderLevel, persons.getPersonCount());
 
         ResultView.executeNames(persons);
         ResultView.drawLadder(ladder);
