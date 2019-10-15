@@ -7,7 +7,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 
 public class PointTest {
-
     @Test
     public void 처음_Point는_왼쪽이_false이다() {
         Point first = Point.first();

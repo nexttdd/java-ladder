@@ -8,7 +8,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LineTest {
-
     @Test
     public void 라인한줄_만들기() {
         Line line = new Line(5);

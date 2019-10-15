@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class Player {
     private static final int MAX_NAME_LENGTH = 5;
     private final String name;
@@ -16,15 +18,28 @@ public class Player {
         int leftPadding = (MAX_NAME_LENGTH - name.length()) / 2;
         int rightPadding = MAX_NAME_LENGTH - name.length() - leftPadding;
 
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder playerNames = new StringBuilder();
         for (int i = 0; i < leftPadding; i++) {
-            stringBuilder.append(" ");
+            playerNames.append(" ");
         }
-        stringBuilder.append(name);
+        playerNames.append(name);
         for (int i = 0; i < rightPadding; i++) {
-            stringBuilder.append(" ");
+            playerNames.append(" ");
         }
 
-        return stringBuilder.toString();
+        return playerNames.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(name, player.name.trim());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
